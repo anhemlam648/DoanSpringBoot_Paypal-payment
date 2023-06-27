@@ -21,16 +21,10 @@
 <body class="sb-nav-fixed">
 <nav th:fragment="header_top" class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" th:href="@{/}">Levent</a>
+    <a class="navbar-brand ps-3" th:href="@{/}">Tocotoco</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" th:href="@{/}"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input id="keyword" name="keyword" class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-        </div>
-    </form>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4 text-light">
        <!-- <li>dang nhap</li>
@@ -64,8 +58,8 @@
                         </nav>
                     </div>
                     <a class="nav-link collapsed" th:href="@{/}" data-bs-toggle="collapse" data-bs-target="#collapseOrders" aria-expanded="false" aria-controls="collapseCustomers">
-                        <div class="sb-nav-link-icon"><i class="fa-regular fa-address-card"></i></div>
-                        Quản đơn hàng
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        Quản lý đơn hàng
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseOrders" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
@@ -86,7 +80,7 @@
         <footer th:fragment="footer" class="py-4 mt-auto"  style="background-color: whitesmoke;">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Nhóm 2 &copy; PetStore Website 2023</div>
+                    <div class="text-muted">© 2019 ToCoToCoTea. All rights reserved.</div>
                     <div>
                         <a th:href="@{/}">Contact us</a>
                     </div>

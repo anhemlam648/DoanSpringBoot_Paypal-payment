@@ -53,9 +53,12 @@
                 <td class="product_price" th:text="${product.price}"></td>
                 <td th:text="${product.quantityStock}"></td>
                 <td th:switch="${product.quantityStock}">
-                    <span th:case="0" class="badge rounded-pill bg-danger">Out Stock</span>
-
-                    <span th:case="*" class="badge rounded-pill bg-dark">In Stock</span>
+                    <th:block th:if="${product.quantityStock <= 0}">
+                        <span class="badge rounded-pill bg-danger" style="color: while;">Hết Hàng</span>
+                    </th:block>
+                    <th:block th:if="${product.quantityStock > 0}">
+                        <span class="badge rounded-pill bg-dark" style="color: yellow;">Còn Hàng</span>
+                    </th:block>
                 </td>
                 <td th:text="${product.unit}"></td>
                 <td>

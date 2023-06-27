@@ -22,14 +22,14 @@
         </ol>
     </nav>
     <p>
-        <select class="select" style="margin-left: 30px;" id="category" name="category.id" onchange="redirectToCategory()">
+        <select class="select" style="margin-left: 30px;" id="category" name="category.id" onchange="ChangeToCategory()">
             <option value="">Lọc sản phẩm</option>
             <option th:each="category : ${categories}" th:value="${category.name}"
                     th:text="${category.name}"></option>
         </select>
     </p>
     <script>
-    function redirectToCategory() {
+    function ChangeToCategory() {
         var selectedCategory = document.getElementById("category").value;
         var newUrl = "/product/cate/" + selectedCategory;
         window.location.href = newUrl;

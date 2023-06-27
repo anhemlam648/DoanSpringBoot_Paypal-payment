@@ -39,7 +39,6 @@ public class UserController {
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new User());
-
         return "home/dangky";
     }
 

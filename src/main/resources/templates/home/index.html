@@ -3,7 +3,7 @@
       lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PetStore</title>
+    <title>Tocotoco</title>
     <th:block th:replace="@{layout/layoutClient} :: link-bootstrap"></th:block>
     <th:block th:replace="@{layout/layoutClient} :: link-main-css"></th:block>
     <th:block th:replace="@{layout/layoutClient} :: link-base-css"></th:block>
@@ -14,9 +14,6 @@
 <body class="app">
 <th:block th:replace="@{layout/layoutClient} :: head_top" class="fixed-header"></th:block>
     <div class="app__container">
-        <div class="cont__Picap">
-            <img th:src="@{/img/HomePage-PetStore-12.jpg.webp}" alt="">
-        </div>
         <!-- Star - danh sach san pham-->
         <div class="container">
             <div class="row gy-3" >
@@ -47,11 +44,11 @@
             </div>
         </div>
         <!-- End - danh sách sản phẩm đừng đụng đến nha đụng là đập-->
-        <div class="cont__text">
-            <span class="cont__text_vb">Nơi có những thứ mà thú cưng của bạn cần</span>
+        <div class="cont__text" style="height: 50px;">
+            <span class="cont__text_vb">Nơi có những thức uống ngon bổ dưỡng</span>
         </div>
         <div class="cont__Picap">
-                <img th:src="@{/img/HomePage-PetStore-12.jpg.webp}" alt="">
+            <img th:src="@{https://listdiachi.com/wp-content/uploads/2022/10/menu-tra-sua-tocotoco.jpg}" style="width: 1500px;">
         </div>
     </div>
 <th:block th:replace="@{layout/layoutClient} :: footer"></th:block>

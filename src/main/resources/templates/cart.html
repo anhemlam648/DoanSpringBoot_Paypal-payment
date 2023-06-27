@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-xl-6">
                     <input type="text" class="form-control" id="location-district" placeholder="Quận/huyện"
-                           name="district">
+                           name="district" required>
                 </div>
                 <div class="col-xl-6">
                     <input type="text" class="form-control" id="location-ward" placeholder="Phường" name="ward">
@@ -98,11 +98,12 @@
                                 </a>
                             </div>
                             <div class="quantity" style="display: flex; justify-content: space-between;">
-                                <!--                <h3 style="width: 38px;height: 5rem;" class="form-control" id="quantity" name ="quantity" th:text="${item.quantity}"></h3>-->
+                                <!--<h3 style="width: 38px;height: 5rem;" class="form-control" id="quantity" name ="quantity" th:text="${item.quantity}"></h3>-->
 
                                 <input style="margin-top: 25px;width: 54px;padding-left: 13px;height: 34px;" min="0"
                                        type="number"
                                        name="quantity" class="form-control quantity-input" th:value="${item.quantity}"/>
+
                                 <div class="card_price">
                                     <h3 class="price product_price" th:text="${item.price * item.quantity}">Price</h3>
                                     <a th:href="@{/remove/{id}(id=${item.getId})}" style="padding: 9px 20px;"
@@ -119,7 +120,7 @@
                 <div class="total product_price" style="font-size: 14px; font-weight:500" th:text="${totalPrice}"></div>
             </div>
             <div>
-                <button id="btn-oder" class="btn btn-primary btn-dark"
+                <button id="btn-oders" class="btn btn-primary btn-dark"
                         style="width:19%; padding: 8px; margin-left: 80%;">Xác nhận đơn hàng
                 </button>
             </div>
@@ -163,85 +164,24 @@
     }
   });
 
-
-
-
-
-
-
-
 </script>
-<script>
-  document.getElementById('btn-oder').addEventListener('click', function() {
-  var deliveryInfoForm = document.getElementById('order-info-form');
+<script th:inline="javascript">
+ var deliveryInfoForm = document.getElementById('order-info-form');
+  document.getElementById('btn-oders').addEventListener('click', function() {
+  this.style.display = 'none';
   if (document.querySelector('.cart_item')) {
     deliveryInfoForm.style.display = 'block';
   } else {
     alert('Giỏ hàng đang trống. Vui lòng thêm sản phẩm trước khi đặt hàng.');
   }
 });
-
-
-
-
-
-
-
-
 </script>
+
 <script th:inline="javascript">
-  const myButton = document.getElementById("btn-order");
-  myButton.addEventListener("click", () => {
-
-   const items = /*[[${items}]]*/ null;
-  const cartItems = items.map(item => ({productId: item.id, quantity: item.quantity}));
-
-  const data = {
-    "userId": [[${userId}]],
-    "paymentMethodId": 1,
-    "discount": 0,
-    "status": "pending",
-    "totalPrice": [[${totalPrice}]],
-    "cartItems": cartItems
-};
-    fetch("/orders", {
-     method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(data)
-    })
-      .then(res => {
-<!--      if(res.status === 200){-->
-<!--              window.location.href = "/pay/status-success"; // redirect to a new page-->
-<!--              return;-->
-<!--      }-->
-<!--      else if(res.status ===400) {-->
-<!--        window.location.href = "/pay/status-fail"; // redirect to a new page-->
-<!--        return;-->
-
-<!--      }-->
-
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  });
-
-
-
-
-
-
-
-
-</script>
-<script th:inline="javascript">
-  const myButton1 = document.getElementById("btn-order");
+const myButton1 = document.getElementById("btn-order");
 const userId = [[${userId}]];
 console.log("USER ID" + userId);
-
-  myButton1.addEventListener("click", () => {
+myButton1.addEventListener("click", () => {
 const name = document.getElementById('name').value;
 const email = document.getElementById('email').value;
 const phone = document.getElementById('phone').value;
@@ -292,16 +232,7 @@ const ward = document.getElementById('location-ward').value;
         console.error(error);
       });
   });
-
-
-
-
-
-
-
-
 </script>
-
 <script src="/js/toVND.js"></script>
 <th:block th:replace="@{layout/layoutClient} :: footer"></th:block>
 </body>

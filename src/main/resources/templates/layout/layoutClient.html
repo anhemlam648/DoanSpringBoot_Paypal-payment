@@ -10,12 +10,141 @@
     <script th:fragment="script-jquery" th:src=@{https://code.jquery.com/jquery-3.6.0.js}></script>
     <title>Home</title>
 </head>
-<style>
-    .header__nav_bot-link:hover{
-    color: black;
-    }
+        <style>
+                .app {
+                font-family: Arial, sans-serif;
+                color: #333;
+            }
 
-</style>
+            .header_navbar {
+                background-color: yellow;
+                padding: 10px;
+            }
+
+            .header_navbar_list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .header_navbar_items {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .header_navbar_items i {
+                margin-right: 5px;
+            }
+
+            .header {
+                background-color: #f9d8f9;
+                padding: 20px;
+            }
+
+            .Host__Store {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 20px;
+            }
+
+            .icon__function_list {
+                display: flex;
+                align-items: center;
+            }
+
+            .icon__function_search {
+                display: flex;
+                align-items: center;
+                background-color: #e7d6e9;
+                border-radius: 20px;
+                padding: 5px;
+            }
+
+            .icon__function_search form {
+                display: flex;
+                align-items: center;
+                width: 100%;
+            }
+
+            .icon__function_search input[type="text"] {
+                flex-grow: 1;
+                padding: 6px 8px;
+                border: none;
+                background-color: transparent;
+            }
+
+            .icon__function_search button {
+                padding: 6px 12px;
+                background-color: #f5f5f5;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .header__nav_bot {
+                background-color: #e7d6e9;
+                padding: 10px;
+            }
+
+            .header__nav_bot-list {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+            }
+
+            .header__nav_bot-item {
+                margin-right: 10px;
+            }
+
+            .header__nav_bot-link {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+            }
+
+            .header__nav_bot-link:hover {
+                color: #555;
+            }
+            .search-form {
+                display: flex;
+                align-items: center;
+            }
+
+            .search-input {
+                width: 200px;
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .search-button {
+                width: 100px;
+                padding: 8px;
+                background-color: #f5f5f5;
+                border: 1px solid black;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+                .Host__Store {
+                    border: 1px solid yellow;
+                    /* Other existing styles */
+                }
+                .header__nav_bot {
+                 border: 1px solid;
+                 background-image: linear-gradient(to right, pink, purple);
+                 padding: 0 20px; /* Điều chỉnh giá trị theo ý muốn */
+                    }
+                .header_navbar {
+                  background-color: #FF00FF; /* Mã màu hồng tím */
+                }
+
+        </style>
 <body>
 <script>
         $(document).ready(function() {
@@ -67,48 +196,40 @@
 
 <div class="app">
     <div th:fragment="head_top">
-        <nav class="header_navbar">
-            <div class="header__nav--top">
+        <nav class="header_navbar" >
+            <div class="header__nav--top" style="background-image: linear-gradient(to right, pink, purple);">
                 <ul class="header_navbar_list">
-                        <span class="header_navbar_items">
-                            <i class="fas fa-globe-americas"></i>
-                            Pets love you
-                        </span>
-                </ul>
-                <ul class="header_navbar_list">
-                    <li class="header_navbar_items">
-                        <a class="header__navbar-icon-link" href="">
-                            Mua Ngay!
-                            <i class="far fa-money-bill-alt"></i>
-                        </a>
+                    <li class="header_navbar_items" >
+                        <span class="fas fa-globe-americas"></span>
+                        Tocotoco
                     </li>
                 </ul>
             </div>
         </nav>
-        <header class="header">
+        <header class="header" >
             <div class="Host__Store">
-                <div class="icon__function_list icon__function_search" style="font-size: 1.6rem">
-                    <form th:action="@{/product/search}" method="get" >
-                        <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm!" >
-                        <button style="border: 0.5px solid black;" type="submit">Search</button>
+                <div class="icon__function_list icon__function_search">
+                    <form th:action="@{/product/search}" method="get" class="search-form">
+                        <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm!" class="search-input">
+                        <button type="submit" class="search-button">Search</button>
                     </form>
                 </div>
                 <div>
-                    <a href=""><img th:src="@{/img/logo2.webp}" alt="" style="width: 10rem;"></a>
+                    <span><img th:src="@{https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJSXRZGCdu4_CUuMI8-9XqCgrWO2fyXwJP4IT4oI_WmPXlRPmKclwRMPUAKuvp3LCZHa4&usqp=CAU}" alt="" style="width: 100px;"></span>
                 </div>
                 <div class="icon__function_list">
                     <i class="icon__function_items far fa-bell"></i>
-                    <tr sec:authorize="!hasAnyAuthority('USER','ADMIN')" th:remove="tag">
-                    <a th:if="${user == null}" th:href="@{/login}" class="icon__function_items icon__function_items_bag fas fa-shopping-bag" onclick="thongbao1()"></a>
+                    <span sec:authorize="!hasAnyAuthority('USER','ADMIN')" th:remove="tag">
+                        <a th:if="${user == null}" th:href="@{/login}" class="icon__function_items icon__function_items_bag fas fa-shopping-bag" onclick="thongbao1()"></a>
                         <script>
                             function thongbao1() {
                                 alert('Bạn cần đăng nhập hoặc đăng ký để xem giỏ hàng.');
-                                    }
-                            </script>
-                    </tr>
-                    <tr sec:authorize="hasAnyAuthority('USER','ADMIN')">
-                    <a th:if="${user == null}" class="icon__function_items icon__function_items_bag fas fa-shopping-bag" href="/cart"></a>
-                    </tr>
+                            }
+                        </script>
+                    </span>
+                    <span sec:authorize="hasAnyAuthority('USER','ADMIN')">
+                        <a th:if="${user == null}" class="icon__function_items icon__function_items_bag fas fa-shopping-bag" href="/cart"></a>
+                    </span>
                     <i class="icon__function_items icon__function_items-user far fa-user-circle">
                         <ul class="header__navbar-user-menu">
                             <li sec:authorize="isAuthenticated()">
@@ -116,7 +237,6 @@
                                     <button class="btn btn-outline-danger" type="submit">Đăng xuất</button>
                                 </form>
                             </li>
-
                             <li sec:authorize="!isAuthenticated()">
                                 <a class="btn btn-outline-primary" href="/login">Đăng nhập</a>
                             </li>
@@ -124,33 +244,22 @@
                     </i>
                 </div>
             </div>
-
-
-            <div class="header__nav_bot">
+            <div class="header__nav_bot" style="height: 55px;">
                 <ul class="header__nav_bot-list">
                     <li class="header__nav_bot-item">
-                        <a class="header__nav_bot-link" href="">Về chúng tôi</a>
+                        <a class="header__nav_bot-link" th:href="@{/}">Trang chủ</a>
                     </li>
                     <li class="header__nav_bot-item header__nav_bot-flex">
                         <a class="header__nav_bot-link" th:href="@{/product/products}">Sản phẩm</a>
                     </li>
                     <li class="header__nav_bot-item">
-                        <a class="header__nav_bot-link" href="">Bộ sưu tập</a>
-                    </li>
-                    <li class="header__nav_bot-item">
-                        <a class="header__nav_bot-link header__nav_bot-sale" href="">Giảm giá</a>
-                    </li>
-                    <li class="header__nav_bot-item">
-                        <a class="header__nav_bot-link" href="">Liên hệ</a>
-                    </li>
-                    <li class="header__nav_bot-item">
-                        <a class="header__nav_bot-link" href="">Chăm sóc khách hàng</a>
+                        <a class="header__nav_bot-link" th:href="@{/callshow/call}">Liên hệ</a>
                     </li>
                 </ul>
             </div>
         </header>
     </div>
-
+</div>
 
 <!--    <div class="app__container">-->
 <!--        <div class="product">-->
@@ -190,76 +299,61 @@
 <!--        </div>-->
 
 
-        <footer th:fragment="footer">
-            <div class="footer__grid">
-                <div class="footer__grid_col">
-                    <h3 class="footer__grid_namecol">
-                        Chăm sóc khách hàng
-                    </h3>
-                    <ul class="footer__grid_list">
-                        <li class="footer__grid_item" >Trung Tâm Trợ Giúp</li>
-                        <li class="footer__grid_item" >Hướng Dẫn Mua Hàng</li>
-                        <li class="footer__grid_item" >Thông Tin Đơn Hàng</li>
-                    </ul>
-                </div>
-                <div class="footer__grid_col">
-                    <h3 class="footer__grid_namecol">
-                        Giới thiệu
-                    </h3>
-                    <ul class="footer__grid_list">
-                        <li class="footer__grid_item" >
-                            Levents® - Popular Streetwear Brand
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__grid_col">
-                    <h3 class="footer__grid_namecol">
-                        Theo dõi chúng tôi
-                    </h3>
-                    <ul class="footer__grid_list">
-                        <li class="footer__grid_item" >
-                            <a href="" class="footer__list-item-link">
-                                <i class="fab fa-facebook"></i>
-                                Facebook
-                            </a>
-                        </li>
-                        <li class="footer__grid_item" >
-                            <a href="" class="footer__list-item-link">
-                                <i class="fab fa-instagram-square"></i>
-                                Instagram
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__grid_col">
-                    <h3 class="footer__grid_namecol">
-                        Cửa hàng
-                    </h3>
-                    <ul class="footer__grid_list">
-                        <li class="footer__grid_item" >842 Sư Vạn Hạnh, Phường 12, Quận 10, HCM</li>
-                        <li class="footer__grid_item" >The New Playground, 04, Quận 1, HCM</li>
-                        <li class="footer__grid_item" >54, Mậu Thân, Phường Xuân Khánh, Quận Ninh Kiều, Cần Thơ</li>
-                    </ul>
-                </div>
+    <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__grid_col">
+                <h3 class="footer__grid_namecol">
+                    Giới thiệu
+                </h3>
+                <p class="footer__grid_description" style="font-size:20px">
+                    ToCoToCo - Thương hiệu trà sữa tiên phong sử dụng nguồn nông sản Việt Nam
+                </p>
             </div>
-            <div class="footer__bottom">
-                <div class="testcode">
-                    <div class="iamadd__text">
-                        <a href="" class="iamadd__text-test">CHÍNH SÁCH BẢO MẬT</a>
-                    </div>
-                    <div class="iamadd__text">
-                        <a href="" class="iamadd__text-test">QUY CHẾ HOẠT ĐỘNG</a>
-                    </div>
-                    <div class="iamadd__text">
-                        <a href="" class="iamadd__text-test">CHÍNH SÁCH VẬN CHUYỂN</a>
-                    </div>
-                    <div class="iamadd__text">
-                        <a href="" class="iamadd__text-test">CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</a>
-                    </div>
-                </div>
-                <p class="footer__text">© 2023 - Bản quyền thuộc về Team 3TL</p>
+            <div class="footer__grid_col">
+                <h3 class="footer__grid_namecol">
+                    Theo dõi chúng tôi
+                </h3>
+                <ul class="footer__grid_list">
+                    <li class="footer__grid_item">
+                        <a href="#" class="footer__list-item-link">
+                            <i class="fab fa-facebook"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li class="footer__grid_item">
+                        <a href="#" class="footer__list-item-link">
+                            <i class="fab fa-instagram"></i>
+                            Instagram
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </footer>
+            <div class="footer__grid_col">
+                <h3 class="footer__grid_namecol">
+                    Cửa hàng
+                </h3>
+                <ul class="footer__grid_list">
+                    <li class="footer__grid_item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        ToCoToCo 499 Quang Trung Q.Gò Vấp
+                    </li>
+                    <li class="footer__grid_item">
+                        <i class="fas fa-phone"></i>
+                        1900.63.69.36
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="testcode">
+                <a href="#" class="iamadd__text-test">CHÍNH SÁCH BẢO MẬT</a>
+                <a href="#" class="iamadd__text-test">QUY CHẾ HOẠT ĐỘNG</a>
+                <a href="#" class="iamadd__text-test">CHÍNH SÁCH VẬN CHUYỂN</a>
+                <a href="#" class="iamadd__text-test">CHÍNH SÁCH TRẢ HÀNG VÀ HOÀN TIỀN</a>
+            </div>
+            <p class="footer__text">© 2019 ToCoToCoTea. All rights reserved.</p>
+        </div>
+    </footer>
     </div>
 </div>
 </body>
