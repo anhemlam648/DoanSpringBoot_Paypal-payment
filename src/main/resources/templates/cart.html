@@ -33,13 +33,6 @@
           color: black;
         }
 
-
-
-
-
-
-
-
     </style>
 </head>
 <body class="app">
@@ -47,38 +40,49 @@
 <div class="app__container">
     <div class="row " style="margin: 0 16px;">
         <div id="order-info-form" th:object="${user}" class="col-xl-6 delivery-info-form" style="display: none;">
-            <h1 style="margin-bottom: 22px;">Thông tin giao hàng</h1>
+            <h1 style="margin-bottom: 22px;">Thông tin đặt hàng</h1>
             <div class="row">
                 <div class="col-12">
-                    <input type="text" class="form-control" id="name" placeholder="Họ và Tên">
+                    <input type="text" class="form-control" id="name" placeholder="Họ và Tên" style="border-radius: 20px;">
                 </div>
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="phone" placeholder="SĐT">
+                    <input type="text" class="form-control" id="phone" placeholder="Số Điện Thoại" style="border-radius: 20px;">
                 </div>
-
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="email" placeholder="Email" name="email">
+                    <input type="text" class="form-control" id="email" placeholder="Email" name="email" style="border-radius: 20px;">
                 </div>
                 <div class="col-xl-8">
-                    <input type="text" class="form-control" id="address" placeholder="Địa chỉ" name="address">
+                    <input type="text" class="form-control" id="address" placeholder="Địa chỉ" name="address" style="border-radius: 20px;">
                 </div>
                 <div class="col-xl-4">
-                    <select id="localtionID" class="form-control">
-                        <option value=""> Chọn tỉnh / thành</option>
-                        <option th:each="location : ${location}" th:value="${location.id}"
-                                th:text="${location.name}"></option>
+                    <select id="localtionID" class="form-control" style="border-radius: 20px;">
+                        <option value=""> Chọn tỉnh / Thành phố</option>
+                        <option th:each="location : ${location}" th:value="${location.id}" th:text="${location.name}"></option>
                     </select>
                 </div>
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="location-district" placeholder="Quận/huyện"
-                           name="district" required>
+                    <input type="text" class="form-control" id="location-district" placeholder="Quận/Huyện" name="district" style="border-radius: 20px;">
                 </div>
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="location-ward" placeholder="Phường" name="ward">
+                    <input type="text" class="form-control" id="location-ward" placeholder="Phường" name="ward" style="border-radius: 20px;">
                 </div>
-                <button id="btn-order" type="submit" class="btn btn-primary col-xl-12 btn-dark"
-                        style="width:19%; padding: 8px; margin-left: 80%;">Đặt hàng
-                </button>
+                <script>
+                function showNotification() {
+                    // Get the values from the input fields
+                    var name = document.getElementById('name').value;
+                    var phone = document.getElementById('phone').value;
+                    var email = document.getElementById('email').value;
+                    var address = document.getElementById('address').value;
+                    var district = document.getElementById('location-district').value;
+                    var ward = document.getElementById('location-ward').value;
+
+                    // Check if any field is empty
+                    if (name === '' || phone === '' || email === '' || address === '' || district === '' || ward === '') {
+                        alert('làm ơn điền đầy đủ thông tin giao hàng.');
+                    }
+                }
+            </script>
+                <button id="btn-order" type="submit" class="btn btn-primary col-xl-12" style="width: 19%; padding: 8px; margin-left: 80%; border-radius: 50%; background-color: pink; color: white;" onclick="showNotification()">Thanh toán</button>
             </div>
         </div>
         <div class="col-xl-6">
@@ -106,8 +110,7 @@
 
                                 <div class="card_price">
                                     <h3 class="price product_price" th:text="${item.price * item.quantity}">Price</h3>
-                                    <a th:href="@{/remove/{id}(id=${item.getId})}" style="padding: 9px 20px;"
-                                       class="btn btn-dark btn-primary btn-sm">Xóa</a>
+                                    <a th:href="@{/remove/{id}(id=${item.getId})}" style="padding: 9px 20px; border-radius: 50%; background-color: pink; color: white;" class="btn btn-dark btn-primary btn-sm">Xóa</a>
                                 </div>
                             </div>
                         </div>
@@ -120,8 +123,7 @@
                 <div class="total product_price" style="font-size: 14px; font-weight:500" th:text="${totalPrice}"></div>
             </div>
             <div>
-                <button id="btn-oders" class="btn btn-primary btn-dark"
-                        style="width:19%; padding: 8px; margin-left: 80%;">Xác nhận đơn hàng
+                <button id="btn-oders" class="btn btn-primary col-xl-12" style="width: 19%; padding: 8px; margin-left: 80%; border-radius: 50%; background-color: pink; color: white;">Xác nhận
                 </button>
             </div>
         </div>

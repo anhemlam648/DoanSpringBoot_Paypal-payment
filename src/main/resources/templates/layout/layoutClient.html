@@ -135,14 +135,10 @@
                     border: 1px solid yellow;
                     /* Other existing styles */
                 }
-                .header__nav_bot {
-                 border: 1px solid;
-                 background-image: linear-gradient(to right, pink, purple);
-                 padding: 0 20px; /* Điều chỉnh giá trị theo ý muốn */
-                    }
-                .header_navbar {
-                  background-color: #FF00FF; /* Mã màu hồng tím */
-                }
+
+
+
+
 
         </style>
 <body>
@@ -196,29 +192,26 @@
 
 <div class="app">
     <div th:fragment="head_top">
-        <nav class="header_navbar" >
-            <div class="header__nav--top" style="background-image: linear-gradient(to right, pink, purple);">
-                <ul class="header_navbar_list">
+        <nav class="header_navbar" style=" position: sticky;" >
+            <div class="header__nav--top"  style="background-image: linear-gradient(to right, #FFC0CB, #FFC0CB);">
+                <ul class="header_navbar_list" style="height: 10px;">
                     <li class="header_navbar_items" >
-                        <span class="fas fa-globe-americas"></span>
+                        <span class="fas fa-globe-americas" ></span>
                         Tocotoco
                     </li>
                 </ul>
             </div>
         </nav>
-        <header class="header" >
+        <header class="header" style="position: sticky;  height: 10px;">
             <div class="Host__Store">
                 <div class="icon__function_list icon__function_search">
                     <form th:action="@{/product/search}" method="get" class="search-form">
-                        <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm!" class="search-input">
-                        <button type="submit" class="search-button">Search</button>
+                        <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm!" class="search-input" style="border-radius: 20px; padding: 8px 16px;">
+                        <button type="submit" class="fas fa-search search-icon" style="border-radius: 20px; padding: 8px 16px;">
+                        </button>
                     </form>
                 </div>
-                <div>
-                    <span><img th:src="@{https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJSXRZGCdu4_CUuMI8-9XqCgrWO2fyXwJP4IT4oI_WmPXlRPmKclwRMPUAKuvp3LCZHa4&usqp=CAU}" alt="" style="width: 100px;"></span>
-                </div>
                 <div class="icon__function_list">
-                    <i class="icon__function_items far fa-bell"></i>
                     <span sec:authorize="!hasAnyAuthority('USER','ADMIN')" th:remove="tag">
                         <a th:if="${user == null}" th:href="@{/login}" class="icon__function_items icon__function_items_bag fas fa-shopping-bag" onclick="thongbao1()"></a>
                         <script>
@@ -244,16 +237,16 @@
                     </i>
                 </div>
             </div>
-            <div class="header__nav_bot" style="height: 55px;">
+            <div class="header__nav_bot" style=" height: 80px;background: linear-gradient(to right, #FFC0CB, #FFC0CB);" >
                 <ul class="header__nav_bot-list">
                     <li class="header__nav_bot-item">
-                        <a class="header__nav_bot-link" th:href="@{/}">Trang chủ</a>
-                    </li>
-                    <li class="header__nav_bot-item header__nav_bot-flex">
-                        <a class="header__nav_bot-link" th:href="@{/product/products}">Sản phẩm</a>
+                        <a class="header__nav_bot-link"  th:href="@{/}" style="font-weight: bold;color: white;">Trang chủ</a>
                     </li>
                     <li class="header__nav_bot-item">
-                        <a class="header__nav_bot-link" th:href="@{/callshow/call}">Liên hệ</a>
+                        <a class="header__nav_bot-link" th:href="@{/callshow/call}" style="font-weight: bold;color: white;">Giới thiệu</a>
+                    </li>
+                    <li class="header__nav_bot-item header__nav_bot-flex">
+                        <a class="header__nav_bot-link" th:href="@{/product/products}" style="font-weight: bold;color: white;">Sản phẩm</a>
                     </li>
                 </ul>
             </div>
