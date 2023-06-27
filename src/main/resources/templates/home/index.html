@@ -13,9 +13,9 @@
 </head>
 <body class="app">
 <th:block th:replace="@{layout/layoutClient} :: head_top" class="fixed-header"></th:block>
-    <div class="app__container">
+    <div class="app__container"  style="margin-top: 170px;">
         <!-- Star - danh sach san pham-->
-        <div class="container">
+        <div class="container" >
             <div class="row gy-3" >
                 <div class="col-4 " th:each="product: ${products}">
                     <div class="card shadow">
