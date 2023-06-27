@@ -1,17 +1,16 @@
 package com.example.DoAnJava.controller;
 
-
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@RequestMapping("/callshow")
-public class CallController {
+@RequestMapping("/address")
+public class Address {
 
-    @GetMapping("/call")
-    public String Callshow(){
-        return "call/call";
+    @GetMapping("/show")
+    public String showaddress(Model model){
+        return "address/address";
     }
 }

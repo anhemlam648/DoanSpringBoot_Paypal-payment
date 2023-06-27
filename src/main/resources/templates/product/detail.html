@@ -9,20 +9,25 @@
     <th:block th:replace="@{layout/layoutClient} :: link-base-css"></th:block>
     <th:block th:replace="@{layout/layoutClient} :: link-font-css"></th:block>
     <th:block th:replace="@{layout/layoutClient} :: link-rob-css"></th:block>
+    <style>
+        .btn-pink {
+        background-color: pink;
+        color: white;
+        }
+    </style>
 </head>
 <body class="app">
 <th:block th:replace="@{layout/layoutClient} :: head_top"></th:block>
 <div class="app__container">
-    <nav aria-label="breadcrumb " class="product">
+    <nav aria-label="breadcrumb " class="product" style="margin-top: -100px;">
         <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active"><a style="color: #000; text-decoration: none;" th:href="@{/}" >Trang chủ</a></li>
-            <li class="breadcrumb-item active"><a style="color: #000; text-decoration: none;" th:href="@{/product}" >Cửa hàng</a></li>
-            <li class="breadcrumb-item active "><strong>Chi tiết sản phẩm</strong></li>
+            <li class="breadcrumb-item active"><a style="color: #000; text-decoration: none;" th:href="@{/}"><strong>Trang chủ</strong></a></li>
+            <li class="breadcrumb-item active"><a style="color: #000; text-decoration: none;" th:href="@{/address/show}" ><strong>Cửa Hàng</strong></a></li>
         </ol>
     </nav>
     <div class="row py-5 g-5 shadow" style="padding: 0px 210px 30px 210px;">
         <!-- image thumb -->
-        <div class="col-12 col-lg-6 ">
+        <div class="col-12 col-lg-6 " style="margin-top: -80px;">
             <img th:src="${product.urlImageThumbnail}" class="m-1 w-100 sliderMainImage large-image" data-bs-toggle="model" data-bs-target="#imageModel"/>
             <ul class="list-group list-group-horizontal ">
                 <li class="list-group-item border-0 ">
@@ -33,9 +38,8 @@
                 </li>
             </ul>
         </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6" style="margin-top: -0px;">
             <h2 id="productName"  th:text="${product.name}"></h2>
-            <small class="text-muted">Levent</small>
             <h4 class="my-4 product_price"><span  id="price" th:text="${product.price}"> </span></h4>
             <h4 class="my-4 "><span  id="cate" th:text="${product.productType.name +' - '+ product.category.name}"> </span></h4>
             <td sec:authorize="hasAnyAuthority('ADMIN','USER')">
@@ -59,7 +63,7 @@
                 </div>
             </div>
             <div class="d-grid my-4">
-                <a th:href="@{/product/products}" class="btn btn-lg btn-danger">
+                <a th:href="@{/product/products}" class="btn btn-lg" style="background-color: pink; color: white;">
                     Tiếp tục mua sắm
                 </a>
             </div>
