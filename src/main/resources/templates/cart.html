@@ -33,6 +33,13 @@
           color: black;
         }
 
+
+
+
+
+
+
+
     </style>
 </head>
 <body class="app">
@@ -40,31 +47,34 @@
 <div class="app__container">
     <div class="row " style="margin: 0 16px;">
         <div id="order-info-form" th:object="${user}" class="col-xl-6 delivery-info-form" style="display: none;">
-            <h1 style="margin-bottom: 22px;">Thông tin đặt hàng</h1>
+            <h1 style="margin-bottom: 22px;">Thông tin nhận hàng</h1>
             <div class="row">
                 <div class="col-12">
-                    <input type="text" class="form-control" id="name" placeholder="Họ và Tên" style="border-radius: 20px;">
+                    <input type="text" class="form-control" id="name" placeholder="Họ và Tên">
                 </div>
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="phone" placeholder="Số Điện Thoại" style="border-radius: 20px;">
+                    <input type="text" class="form-control" id="phone" placeholder="Số điện thoại">
                 </div>
+
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="email" placeholder="Email" name="email" style="border-radius: 20px;">
+                    <input type="text" class="form-control" id="email" placeholder="Email" name="email">
                 </div>
                 <div class="col-xl-8">
-                    <input type="text" class="form-control" id="address" placeholder="Địa chỉ" name="address" style="border-radius: 20px;">
+                    <input type="text" class="form-control" id="address" placeholder="Địa chỉ" name="address">
                 </div>
                 <div class="col-xl-4">
-                    <select id="localtionID" class="form-control" style="border-radius: 20px;">
-                        <option value=""> Chọn tỉnh / Thành phố</option>
-                        <option th:each="location : ${location}" th:value="${location.id}" th:text="${location.name}"></option>
+                    <select id="localtionID" class="form-control">
+                        <option value=""> Chọn tỉnh / thành</option>
+                        <option th:each="location : ${location}" th:value="${location.id}"
+                                th:text="${location.name}"></option>
                     </select>
                 </div>
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="location-district" placeholder="Quận/Huyện" name="district" style="border-radius: 20px;">
+                    <input type="text" class="form-control" id="location-district" placeholder="Quận/Huyện"
+                           name="district">
                 </div>
                 <div class="col-xl-6">
-                    <input type="text" class="form-control" id="location-ward" placeholder="Phường" name="ward" style="border-radius: 20px;">
+                    <input type="text" class="form-control" id="location-ward" placeholder="Phường" name="ward">
                 </div>
                 <script>
                 function showNotification() {
@@ -81,8 +91,10 @@
                         alert('làm ơn điền đầy đủ thông tin giao hàng.');
                     }
                 }
-            </script>
-                <button id="btn-order" type="submit" class="btn btn-primary col-xl-12" style="width: 19%; padding: 8px; margin-left: 80%; border-radius: 50%; background-color: pink; color: white;" onclick="showNotification()">Thanh toán</button>
+                </script>
+                <button id="btn-order" type="submit" class="btn btn-primary col-xl-12 btn-dark"
+                        style="width:19%; padding: 8px; margin-left: 80%;background-color: pink; color: white; border: 2px solid black;" onclick="showNotification()">Thanh toán
+                </button>
             </div>
         </div>
         <div class="col-xl-6">
@@ -102,15 +114,15 @@
                                 </a>
                             </div>
                             <div class="quantity" style="display: flex; justify-content: space-between;">
-                                <!--<h3 style="width: 38px;height: 5rem;" class="form-control" id="quantity" name ="quantity" th:text="${item.quantity}"></h3>-->
+                                <!--                <h3 style="width: 38px;height: 5rem;" class="form-control" id="quantity" name ="quantity" th:text="${item.quantity}"></h3>-->
 
                                 <input style="margin-top: 25px;width: 54px;padding-left: 13px;height: 34px;" min="0"
                                        type="number"
                                        name="quantity" class="form-control quantity-input" th:value="${item.quantity}"/>
-
                                 <div class="card_price">
                                     <h3 class="price product_price" th:text="${item.price * item.quantity}">Price</h3>
-                                    <a th:href="@{/remove/{id}(id=${item.getId})}" style="padding: 9px 20px; border-radius: 50%; background-color: pink; color: white;" class="btn btn-dark btn-primary btn-sm">Xóa</a>
+                                    <a th:href="@{/remove/{id}(id=${item.getId})}" style="padding: 9px 20px;background-color: pink; color: white; border: 2px solid black;"
+                                       class="btn btn-dark btn-primary btn-sm">Xóa</a>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +135,8 @@
                 <div class="total product_price" style="font-size: 14px; font-weight:500" th:text="${totalPrice}"></div>
             </div>
             <div>
-                <button id="btn-oders" class="btn btn-primary col-xl-12" style="width: 19%; padding: 8px; margin-left: 80%; border-radius: 50%; background-color: pink; color: white;">Xác nhận
+                <button id="btn-oder" class="btn btn-primary btn-dark"
+                        style="width:19%; padding: 8px; margin-left: 80%;background-color: pink; color: white; border: 2px solid black;">Xác nhận
                 </button>
             </div>
         </div>
@@ -165,25 +178,71 @@
       return price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND', minimumFractionDigits: 3  });
     }
   });
-
 </script>
-<script th:inline="javascript">
- var deliveryInfoForm = document.getElementById('order-info-form');
-  document.getElementById('btn-oders').addEventListener('click', function() {
-  this.style.display = 'none';
+<script>
+  document.getElementById('btn-oder').addEventListener('click', function() {
+  var deliveryInfoForm = document.getElementById('order-info-form');
   if (document.querySelector('.cart_item')) {
+  this.style.display = 'none';
     deliveryInfoForm.style.display = 'block';
   } else {
     alert('Giỏ hàng đang trống. Vui lòng thêm sản phẩm trước khi đặt hàng.');
   }
 });
 </script>
-
 <script th:inline="javascript">
-const myButton1 = document.getElementById("btn-order");
+  const myButton = document.getElementById("btn-order");
+  myButton.addEventListener("click", () => {
+
+   const items = /*[[${items}]]*/ null;
+  const cartItems = items.map(item => ({productId: item.id, quantity: item.quantity}));
+
+  const data = {
+    "userId": [[${userId}]],
+    "paymentMethodId": 1,
+    "discount": 0,
+    "status": "pending",
+    "totalPrice": [[${totalPrice}]],
+    "cartItems": cartItems
+};
+    fetch("/orders", {
+     method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => {
+<!--      if(res.status === 200){-->
+<!--              window.location.href = "/pay/status-success"; // redirect to a new page-->
+<!--              return;-->
+<!--      }-->
+<!--      else if(res.status ===400) {-->
+<!--        window.location.href = "/pay/status-fail"; // redirect to a new page-->
+<!--        return;-->
+
+<!--      }-->
+
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  });
+
+
+
+
+
+
+
+
+</script>
+<script th:inline="javascript">
+  const myButton1 = document.getElementById("btn-order");
 const userId = [[${userId}]];
 console.log("USER ID" + userId);
-myButton1.addEventListener("click", () => {
+
+  myButton1.addEventListener("click", () => {
 const name = document.getElementById('name').value;
 const email = document.getElementById('email').value;
 const phone = document.getElementById('phone').value;
@@ -235,6 +294,7 @@ const ward = document.getElementById('location-ward').value;
       });
   });
 </script>
+
 <script src="/js/toVND.js"></script>
 <th:block th:replace="@{layout/layoutClient} :: footer"></th:block>
 </body>
