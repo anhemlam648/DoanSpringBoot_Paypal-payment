@@ -96,6 +96,15 @@ public class CartController {
         cart.removeItem(id);
         return "redirect:/cart";
     }
+    @GetMapping("/cart/count")
+    @ResponseBody
+    public int getCartItemCount(Model model) {
+        Cart cart = (Cart) model.getAttribute("cart");
+        if (cart == null) {
+            return 0;
+        }
+        return cart.getItems().size();
+    }
 
 
 }

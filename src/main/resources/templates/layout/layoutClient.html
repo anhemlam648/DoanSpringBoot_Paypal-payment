@@ -212,18 +212,58 @@
                     </form>
                 </div>
                 <div class="icon__function_list">
-  <span sec:authorize="!hasAnyAuthority('USER','ADMIN')" th:remove="tag">
-    <a th:if="${user == null}" th:href="@{/login}" style="color: #000; text-decoration: none;" class="icon__function_items icon__function_items_bag fas fa-shopping-cart" onclick="thongbao1()"></a>
-    <script>
-      function thongbao1() {
-        alert('Bạn cần đăng nhập hoặc đăng ký để xem giỏ hàng.');
-      }
-    </script>
-  </span>
-                    <span sec:authorize="hasAnyAuthority('USER','ADMIN')">
-    <a th:if="${user == null}" style="color: #000; text-decoration: none;" class="icon__function_items icon__function_items_bag fas fa-shopping-cart" href="/cart"></a>
-  </span>
+            <span sec:authorize="!hasAnyAuthority('USER','ADMIN')" th:remove="tag">
+             <p id="cartCount1" style="margin: 0; color: #fff; background-color: pink; border-radius: 50%; padding: 4px 8px; font-size: 12px; position: absolute; top: -5px;"></p>
+                        <a th:if="${user == null}" style="color: #000; text-decoration: none; position: relative;" class="icon__function_items icon__function_items_bag fas fa-shopping-cart" href="/login" onclick="thongbao1()"></a>
+            <script>
+            function thongbao1() {
+            alert('Bạn cần đăng nhập hoặc đăng ký để xem giỏ hàng.');
+            }
+            </script>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                    $(document).ready(function() {
+                    var cartItemCountElement = $('#cartCount1');
+                    var cartIconElement = $('.icon__function_items_bag');
 
+                    $.ajax({
+                    url: '/cart/count',
+                    type: 'GET',
+                    success: function(data) {
+                        cartItemCountElement.text(data);
+
+                        if (data > 0) {
+                            cartIconElement.addClass('has-items');
+                        }
+                    }
+                });
+            });
+        </script>
+        </span>
+
+                    <span sec:authorize="hasAnyAuthority('USER','ADMIN')">
+                       <p id="cartCount" style="margin: 0; color: #fff; background-color: pink; border-radius: 50%; padding: 4px 8px; font-size: 12px; position: absolute; top: -5px;"></p>
+                        <a th:if="${user == null}" style="color: #000; text-decoration: none; position: relative;" class="icon__function_items icon__function_items_bag fas fa-shopping-cart" href="/cart"></a>
+                    </span>
+                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <script>
+                    $(document).ready(function() {
+                    var cartItemCountElement = $('#cartCount');
+                    var cartIconElement = $('.icon__function_items_bag');
+
+                    $.ajax({
+                    url: '/cart/count',
+                    type: 'GET',
+                    success: function(data) {
+                        cartItemCountElement.text(data);
+
+                        if (data > 0) {
+                            cartIconElement.addClass('has-items');
+                        }
+                    }
+                });
+            });
+        </script>
                     <i class="icon__function_items icon__function_items-user fas fa-user">
                         <ul class="header__navbar-user-menu">
                             <li sec:authorize="isAuthenticated()">
