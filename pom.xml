@@ -32,10 +32,12 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.27</version> <!-- Replace with an available version -->
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -46,13 +48,6 @@
 			<artifactId>firebase-admin</artifactId>
 			<version>8.0.0</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.google.cloud</groupId>
-			<artifactId>google-cloud-storage</artifactId>
-			<version>1.113.2</version>
-		</dependency>
-
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
@@ -82,11 +77,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -110,8 +100,6 @@
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-commons</artifactId>
         </dependency>
-
-
     </dependencies>
 
 	<build>
@@ -128,7 +116,10 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 		</plugins>
+			<!-- Các plugins khác của bạn -->
+
 	</build>
 
 </project>
