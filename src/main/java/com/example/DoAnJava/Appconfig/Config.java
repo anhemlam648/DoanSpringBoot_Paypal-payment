@@ -1,3 +1,4 @@
+/*
 package com.example.DoAnJava.Appconfig;
 
 import org.springframework.context.MessageSource;
@@ -38,3 +39,5 @@ public class Config implements WebMvcConfigurer {
         return messageSource;
     }
 }
+
+ */
