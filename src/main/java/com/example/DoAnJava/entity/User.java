@@ -24,7 +24,7 @@ public class User {
     private Long id;
 
     @Size(max = 50, message = "Username must be less than 50 characters")
-    @Column(name = "username", unique = true)
+    @Column(name = "username", unique = true,length = 191)
     @ValidUsername
     private String username;
 

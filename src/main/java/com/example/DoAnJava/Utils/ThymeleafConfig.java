@@ -1,4 +1,4 @@
-
+/*
 package com.example.DoAnJava.Utils;
 
 
@@ -21,3 +21,5 @@ public class ThymeleafConfig {
         return secondaryTemplateResolver;
     }
 }
+
+ */
