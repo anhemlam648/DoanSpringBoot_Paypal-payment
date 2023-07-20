@@ -32,7 +32,7 @@ public class UserController {
     @Autowired
     private IUserRoleRepository userRoleRepository;
 
-    @GetMapping
+    @GetMapping("/login")
     public String login() {
         return "home/dangnhap";
     }
