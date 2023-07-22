@@ -19,7 +19,7 @@ import java.util.List;
 public class HomeController {
     @Autowired
     private RestTemplate restTemplate;
-    @GetMapping
+    @GetMapping("/home")
     public String home(Model model)
     {
         String url = "http://localhost:8080/product/list";
