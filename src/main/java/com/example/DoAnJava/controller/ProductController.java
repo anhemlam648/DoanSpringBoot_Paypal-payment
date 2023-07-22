@@ -2,7 +2,6 @@ package com.example.DoAnJava.controller;
 
 import com.example.DoAnJava.DTO.CreateProductDto;
 import com.example.DoAnJava.DTO.ProductDto;
-import com.example.DoAnJava.entity.Category;
 import com.example.DoAnJava.entity.Product;
 import com.example.DoAnJava.services.FirebaseService;
 import com.example.DoAnJava.services.ProductService;
@@ -16,11 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.util.UriUtils;
 
 
 import javax.swing.plaf.PanelUI;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Controller
@@ -37,18 +34,14 @@ public class ProductController {
     /* TODO create api list products*/
     /*products by category*/
     @GetMapping("/cate/{name}")
-    public String listProductByCate(@PathVariable(value = "name") String name, Model model) {
-        // Mã hóa tên loại trước khi đưa vào URL
-        String encodedName = UriUtils.encodePath(name, StandardCharsets.UTF_8);
-
-        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/category/" + encodedName;
-        List<Product> products = this.restTemplate.getForObject(url, List.class);
+    public String listProductByCate(@PathVariable(value="name") String name,Model model)
+    {
+        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/category/"+name;
+        List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products", products);
-
         String uri = "http://shoptopping-89b153dfa8dc.herokuapp.com/category";
-        List<Category> categories = this.restTemplate.getForObject(uri, List.class);
-        model.addAttribute("categories", categories);
-
+        List categories = this.restTemplate.getForObject(uri, List.class);
+        model.addAttribute("categories",categories);
         return "product/list";
     }
     @GetMapping("/products")
