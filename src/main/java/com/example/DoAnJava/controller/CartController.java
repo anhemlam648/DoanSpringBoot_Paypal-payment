@@ -50,7 +50,7 @@ public class CartController {
     }
     //@RequestMapping("/cart/add/{id}") id product
     //public String addCart(Cart cart=new Cart(),@RequestParam Long id, HttpSession session)
-    //String url = "http://localhost:8080/product/"+id;
+    //String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/"+id;
     //ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
     //if (cart == null) {
     //            cart.add(product);

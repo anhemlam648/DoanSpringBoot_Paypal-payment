@@ -36,10 +36,10 @@ public class ProductController {
     @GetMapping("/cate/{name}")
     public String listProductByCate(@PathVariable(value="name") String name,Model model)
     {
-        String url = "http://localhost:8080/product/category/"+name;
+        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/category/"+name;
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products", products);
-        String uri = "http://localhost:8080/category";
+        String uri = "http://shoptopping-89b153dfa8dc.herokuapp.com/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
         return "product/list";
@@ -47,10 +47,10 @@ public class ProductController {
     @GetMapping("/products")
     public String listProduct(Model model)
     {
-        String url = "http://localhost:8080/product/list";
+        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
-        String uri = "http://localhost:8080/category";
+        String uri = "http://shoptopping-89b153dfa8dc.herokuapp.com/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
         return "product/list";
@@ -80,7 +80,7 @@ public class ProductController {
 
     @GetMapping("/view/{id}")
     public String getView(@PathVariable(value = "id") Long id,Model model) {
-        String url = "http://localhost:8080/product/"+id;
+        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/"+id;
         ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
         model.addAttribute("product", product);
         return "product/detail";
