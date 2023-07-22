@@ -29,12 +29,11 @@
         </select>
     </p>
     <script>
-  function ChangeToCategory() {
-    var selectedCategory = document.getElementById("category").value;
-    var encodedCategory = encodeURIComponent(selectedCategory);
-    var newUrl = "/product/cate/" + encodedCategory;
-    window.location.href = newUrl;
-}
+    function ChangeToCategory() {
+        var selectedCategory = document.getElementById("category").value;
+        var newUrl = "/product/cate/" + selectedCategory;
+        window.location.href = newUrl;
+    }
     </script>
     <div class="container">
         <div class="row gy-3" >
