@@ -42,7 +42,7 @@ public class ProductController {
         String uri = "http://shoptopping-89b153dfa8dc.herokuapp.com/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
-        return "product/list";
+        return "product";
     }
     @GetMapping("/products")
     public String listProduct(Model model)
