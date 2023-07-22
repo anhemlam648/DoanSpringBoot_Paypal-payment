@@ -22,9 +22,9 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model)
     {
-        String url = "http://localhost:8080/product/list";
-        List products = this.restTemplate.getForObject(url, List.class);
-        model.addAttribute("products",products);
+//        String url = "http://localhost:8080/product/list";
+//        List products = this.restTemplate.getForObject(url, List.class);
+//        model.addAttribute("products",products);
         return  "home/index";
     }
 
