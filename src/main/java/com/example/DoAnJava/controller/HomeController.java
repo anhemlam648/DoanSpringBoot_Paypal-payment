@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/home")
 public class HomeController {
     @Autowired
     private RestTemplate restTemplate;
