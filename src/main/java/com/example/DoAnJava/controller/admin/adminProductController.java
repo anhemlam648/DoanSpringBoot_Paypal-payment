@@ -41,7 +41,7 @@ public class adminProductController {
     @GetMapping("/list")
     public String listProduct(Model model)
     {
-        String url = "http://localhost:8080/product/list";
+        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
         return "admin/product/list";
