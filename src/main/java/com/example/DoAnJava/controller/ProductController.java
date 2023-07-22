@@ -40,12 +40,15 @@ public class ProductController {
     public String listProductByCate(@PathVariable(value = "name") String name, Model model) {
         // Mã hóa tên loại trước khi đưa vào URL
         String encodedName = UriUtils.encodePath(name, StandardCharsets.UTF_8);
+
         String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/category/" + encodedName;
         List<Product> products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products", products);
+
         String uri = "http://shoptopping-89b153dfa8dc.herokuapp.com/category";
         List<Category> categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories", categories);
+
         return "product/list";
     }
     @GetMapping("/products")
