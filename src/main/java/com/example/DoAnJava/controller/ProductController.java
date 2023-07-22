@@ -36,10 +36,10 @@ public class ProductController {
     @GetMapping("/cate/{name}")
     public String listProductByCate(@PathVariable(value="name") String name,Model model)
     {
-        String url = "http://localhost:8080/product/category/"+name;
+        String url = "https://shoptopping-89b153dfa8dc.herokuapp.com/product/category/"+name;
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products", products);
-        String uri = "http://localhost:8080/category";
+        String uri = "https://shoptopping-89b153dfa8dc.herokuapp.com/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
         return "product/list";
