@@ -22,7 +22,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/userhome")
 public class UserController {
     @Autowired
     private UserService userService;
