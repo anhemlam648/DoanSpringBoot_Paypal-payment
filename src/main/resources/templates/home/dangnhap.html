@@ -143,40 +143,6 @@
 </head>
 <body>
 <h2>Login</h2>
-<script>
-        function onSignIn(googleUser) {
-            // Xử lý khi người dùng đăng nhập thành công
-            var profile = googleUser.getBasicProfile();
-            console.log("ID: " + profile.getId()); // ID duy nhất của người dùng
-            console.log("Name: " + profile.getName()); // Tên người dùng
-            console.log("Image URL: " + profile.getImageUrl()); // URL ảnh đại diện
-            console.log("Email: " + profile.getEmail()); // Email người dùng
-        }
-
-        function signOut() {
-            // Xử lý khi người dùng đăng xuất
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function() {
-                console.log("User signed out.");
-            });
-        }
-
-        // Cấu hình Google Sign-In
-        gapi.load("auth2", function() {
-            gapi.auth2.init({
-                client_id: "855390824864-t783u1rlofdtgmu34ir7fbj291qr4l27.apps.googleusercontent.com",
-            });
-            // Đăng ký sự kiện click cho nút đăng nhập
-            gapi.signin2.render("google-signin-button", {
-                scope: "profile email", // Quyền truy cập thông tin profile và email
-                width: 240,
-                height: 50,
-                longtitle: true,
-                theme: "light", // Chọn giao diện sáng hoặc tối
-                onsuccess: onSignIn, // Hàm xử lý khi đăng nhập thành công
-            });
-        });
-    </script>
 <form method="post" action="/login">
   <div th:if="${param.error}" class="alert alert-danger">
     Invalid username or password.
@@ -199,8 +165,9 @@
   <div class="signup-link">
     <a href="/register">Sign up?</a>
   </div>
-  <input id="google-signin-button" style="padding: 10px; background-color: #4285F4; color: #fff; cursor: pointer;">
+  <div class="signup-link">
+    <a href="/google/show">Sign up?</a>
+  </div>
 </form>
 </body>
 </html>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
