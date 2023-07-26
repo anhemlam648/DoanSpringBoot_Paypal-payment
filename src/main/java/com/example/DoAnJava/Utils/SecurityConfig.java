@@ -48,6 +48,7 @@ public class SecurityConfig {
                         .requestMatchers("/product/list")
                         .hasAnyAuthority("ADMIN","USER")
                         .anyRequest().authenticated()
+
                 )
                 .logout(logout -> logout.logoutUrl("/logout")
                         .logoutSuccessUrl("/login")
