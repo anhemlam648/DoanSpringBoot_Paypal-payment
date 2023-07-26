@@ -46,8 +46,8 @@ public class HomeController {
         model.addAttribute("product", result);
         return "product/detail";
     }
-    @GetMapping("/oauth2/callback/google")
-    public String oauth2LoginCallback(@AuthenticationPrincipal OAuth2User principal) {
-        return "redirect:/";
-    }
+//    @GetMapping("/oauth2/callback/google")
+//    public String oauth2LoginCallback(@AuthenticationPrincipal OAuth2User principal) {
+//        return "redirect:/";
+//    }
 }
