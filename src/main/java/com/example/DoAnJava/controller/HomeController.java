@@ -25,11 +25,8 @@ public class HomeController {
     public String home(Model model)
     {
         String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/list";
-        String uri = "https://shoptopping-89b153dfa8dc.herokuapp.com/login/oauth2/code/google";
         List products = this.restTemplate.getForObject(url, List.class);
-        List productss = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("products",products);
-        model.addAttribute("products",productss);
         return  "home/index";
     }
 
