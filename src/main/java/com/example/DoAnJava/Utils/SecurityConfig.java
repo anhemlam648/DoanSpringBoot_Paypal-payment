@@ -36,42 +36,88 @@ public class SecurityConfig {
 
         return auth;
     }
-    @Bean
-    public SecurityFilterChain securityFilterChain(@NotNull HttpSecurity http) throws Exception {
-        return http
+//    @Bean
+//    public SecurityFilterChain securityFilterChain(@NotNull HttpSecurity http) throws Exception {
+//        return http
+//                .csrf(csrf -> csrf.disable())
+//                .authorizeHttpRequests(auth -> auth
+//                        .requestMatchers( "/**", "/js/**", "/","/register","/404")
+//                        .permitAll()
+//                        .requestMatchers("/admin/product")
+//                        .hasAnyAuthority("ADMIN")
+//                        .requestMatchers("/product/list")
+//                        .hasAnyAuthority("ADMIN","USER")
+//                        .anyRequest().authenticated()
+//
+//                )
+//
+//                .logout(logout -> logout.logoutUrl("/logout")
+//                        .logoutSuccessUrl("/login")
+//                        .deleteCookies("JSESSIONID")
+//                        .invalidateHttpSession(true)
+//                        .clearAuthentication(true)
+//                        .permitAll()
+//
+//                )
+//                .formLogin(formLogin -> formLogin.loginPage("/login")
+//                        .loginProcessingUrl("/login")
+//                        .defaultSuccessUrl("/")
+//                        .permitAll()
+//
+//                )
+//                .rememberMe(rememberMe -> rememberMe.key("uniqueAndSecret")
+//                        .tokenValiditySeconds(86400)
+//                        .userDetailsService(userDetailsService())
+//                )
+//                .exceptionHandling(exceptionHandling ->
+//                        exceptionHandling.accessDeniedPage("/404"))
+//                .build();
+//    }
+
+    protected void configure(HttpSecurity http) throws Exception {
+        http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/**", "/js/**", "/","/register","/404")
+                        .requestMatchers("/js/**", "/", "/register", "/404")
                         .permitAll()
                         .requestMatchers("/admin/product")
                         .hasAnyAuthority("ADMIN")
                         .requestMatchers("/product/list")
-                        .hasAnyAuthority("ADMIN","USER")
+                        .hasAnyAuthority("ADMIN", "USER")
                         .anyRequest().authenticated()
-
                 )
-                
                 .logout(logout -> logout.logoutUrl("/logout")
                         .logoutSuccessUrl("/login")
                         .deleteCookies("JSESSIONID")
                         .invalidateHttpSession(true)
                         .clearAuthentication(true)
                         .permitAll()
-
                 )
                 .formLogin(formLogin -> formLogin.loginPage("/login")
                         .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/")
                         .permitAll()
-
                 )
                 .rememberMe(rememberMe -> rememberMe.key("uniqueAndSecret")
                         .tokenValiditySeconds(86400)
                         .userDetailsService(userDetailsService())
                 )
                 .exceptionHandling(exceptionHandling ->
-                        exceptionHandling.accessDeniedPage("/404"))
-                .build();
+                        exceptionHandling.accessDeniedPage("/404")
+                )
+                .oauth2Login(oauth2Login ->
+                        oauth2Login.loginPage("/login") // Specify your custom login page here
+                                .defaultSuccessUrl("/") // Change to your desired landing page after successful login
+                );
+    }
+
+    // Define the SecurityFilterChain to enable both OAuth2 and regular form login
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+                .oauth2Login();
+        return http.build();
     }
 
 }
