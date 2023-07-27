@@ -39,7 +39,10 @@ public class SecurityConfig5 {
         http.authorizeHttpRequests(request->request
                         .anyRequest()
                         .authenticated())
-                .oauth2Login();
+                .oauth2Login(oauth2Login ->
+                        oauth2Login.loginPage("/**") // Specify your custom login page here
+                                .defaultSuccessUrl("/") // Change to your desired landing page after successful login
+                );
         return http.build();
     }
 }
