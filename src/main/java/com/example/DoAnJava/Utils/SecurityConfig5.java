@@ -17,7 +17,7 @@ public class SecurityConfig5 {
                         .anyRequest()
                         .authenticated())
                 .oauth2Login(oauth2Login ->
-                        oauth2Login.loginPage("/oauth2/code/google") // Specify your custom login page here
+                        oauth2Login.loginPage("https://shoptopping-89b153dfa8dc.herokuapp.com/login/oauth2/code/google") // Specify your custom login page here
                                 .defaultSuccessUrl("/") // Change to your desired landing page after successful login
                 );
         return http.build();
