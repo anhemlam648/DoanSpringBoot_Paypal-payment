@@ -16,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig5 {
 
-        @Bean
+    @Bean
     public UserDetailsService userDetailsService() {
         return new CustomUserDetailService();
     }
@@ -36,20 +36,10 @@ public class SecurityConfig5 {
     }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-     return    http.authorizeHttpRequests(request->request
+        http.authorizeHttpRequests(request->request
                         .anyRequest()
                         .authenticated())
-                .oauth2Login(
-                        oauth2Login ->
-                        oauth2Login.loginPage("/login") // Specify your custom login page here
-                                .defaultSuccessUrl("/")
-                )
-                        .rememberMe(rememberMe -> rememberMe.key("uniqueAndSecret")
-                        .tokenValiditySeconds(86400)
-                        .userDetailsService(userDetailsService())
-                )
-                .exceptionHandling(exceptionHandling ->
-                        exceptionHandling.accessDeniedPage("/404"))
-                .build();
+                .oauth2Login();
+        return http.build();
     }
 }
