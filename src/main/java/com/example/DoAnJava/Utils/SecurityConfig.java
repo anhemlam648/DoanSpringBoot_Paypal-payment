@@ -1,6 +1,7 @@
 package com.example.DoAnJava.Utils;
 import com.example.DoAnJava.services.CustomUserDetailService;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -43,6 +44,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers( "/**", "/js/**", "/","/register","/404")
                         .permitAll()
+//                        .requestMatchers( "/login/**")
+//                        .permitAll()
+//                        .requestMatchers( "/oauth2/**")
+//                        .permitAll()
                         .requestMatchers("/admin/product")
                         .hasAnyAuthority("ADMIN")
                         .requestMatchers("/product/list")
@@ -65,6 +70,12 @@ public class SecurityConfig {
                         .permitAll()
 
                 )
+//                .oauth2Login(oauth2 -> oauth2
+//                        .userInfoEndpoint(userInfo -> userInfo
+//                                .userService(oAuth2UserService) // Sử dụng CustomOAuth2UserService để xử lý thông tin người dùng
+//                        )
+//                        .successHandler(oAuth2LoginSuccessHandler) // Sử dụng OAuth2LoginSuccessHandler để xử lý đăng nhập thành công
+//                )
                 .rememberMe(rememberMe -> rememberMe.key("uniqueAndSecret")
                         .tokenValiditySeconds(86400)
                         .userDetailsService(userDetailsService())
@@ -73,5 +84,11 @@ public class SecurityConfig {
                         exceptionHandling.accessDeniedPage("/404"))
                 .build();
     }
+    @Autowired
+    private CustomOAuth2UserService oAuth2UserService;
+
+    @Autowired
+    private OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
+
 
 }

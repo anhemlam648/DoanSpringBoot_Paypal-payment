@@ -1,74 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Chat Box</title>
-  <style>
-    .chat-container {
-        height: 400px;
-        overflow-y: scroll;
-    }
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <title>Chat Box</title>-->
+<!--  <style>-->
+<!--    .chat-container {-->
+<!--        height: 400px;-->
+<!--        overflow-y: scroll;-->
+<!--    }-->
 
-    /* Thay đổi phần header thành màu xanh nhạt */
-    header {
-        background-color: #84c1ff; /* Màu xanh nhạt */
-        color: white;
-        padding: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+<!--    /* Thay đổi phần header thành màu xanh nhạt */-->
+<!--    header {-->
+<!--        background-color: #84c1ff; /* Màu xanh nhạt */-->
+<!--        color: white;-->
+<!--        padding: 10px;-->
+<!--        display: flex;-->
+<!--        justify-content: space-between;-->
+<!--        align-items: center;-->
+<!--    }-->
 
-    /* CSS cho đổi ngôn ngữ */
-    .language-selector {
-        order: 2;
-    }
+<!--    /* CSS cho đổi ngôn ngữ */-->
+<!--    .language-selector {-->
+<!--        order: 2;-->
+<!--    }-->
 
-    /* CSS cho biểu tượng Zalo */
-    .zalo-icon {
-        order: 1;
-    }
+<!--    /* CSS cho biểu tượng Zalo */-->
+<!--    .zalo-icon {-->
+<!--        order: 1;-->
+<!--    }-->
 
-    /* CSS cho mã QR */
-    .qr-code {
-        display: flex;
-        justify-content: center;
-        margin-top: -200px; /* Tăng khoảng cách từ phần chat container */
-    }
+<!--    /* CSS cho mã QR */-->
+<!--    .qr-code {-->
+<!--        display: flex;-->
+<!--        justify-content: center;-->
+<!--        margin-top: -200px; /* Tăng khoảng cách từ phần chat container */-->
+<!--    }-->
 
-    .qr-code img {
-        width: 200px;
-        height: 200px; /* Tăng chiều cao của hình ảnh QR */
-    }
-     .qr-code {
-    background-color: #84c1ff; /* Màu xanh nhạt */
-    padding: 10px;
-  }
-  </style>
-</head>
-<body>
-<header>
-  <div class="zalo-icon">
-    <img src="https://bizflyportal.mediacdn.vn/thumb_wm/1000,100/bizflyportal/images/zal16357323566872.jpg" style="width: 100px; height: auto;">
-  </div>
-  <div class="language-selector">
-    <!-- Phần đổi ngôn ngữ -->
-    <select>
-      <option value="en">English</option>
-      <option value="fr">Tiếng việt</option>
-    </select>
-  </div>
-</header>
+<!--    .qr-code img {-->
+<!--        width: 200px;-->
+<!--        height: 200px; /* Tăng chiều cao của hình ảnh QR */-->
+<!--    }-->
+<!--     .qr-code {-->
+<!--    background-color: #84c1ff; /* Màu xanh nhạt */-->
+<!--    padding: 10px;-->
+<!--  }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<header>-->
+<!--  <div class="zalo-icon">-->
+<!--    <img src="https://bizflyportal.mediacdn.vn/thumb_wm/1000,100/bizflyportal/images/zal16357323566872.jpg" style="width: 100px; height: auto;">-->
+<!--  </div>-->
+<!--  <div class="language-selector">-->
+<!--    &lt;!&ndash; Phần đổi ngôn ngữ &ndash;&gt;-->
+<!--    <select>-->
+<!--      <option value="en">English</option>-->
+<!--      <option value="fr">Tiếng việt</option>-->
+<!--    </select>-->
+<!--  </div>-->
+<!--</header>-->
 
-<div class="chat-container">
-  <div id="chat-messages"></div>
-</div>
-<form id="chat-form">
-  <div class="qr-code">
-    <span style="margin-top: -30px; margin-right: -210px;text-transform: uppercase;">Thông tin chi tiết liên hệ</span>
-    <img src="https://vinacheck.vn/media/2019/05/ma-qr-code_vinacheck.vm_001.jpg" style="display: inline-block; margin-right: 10px;">
-    <span style="display: inline-block; margin-top: 50px;">Mở Zalo, bấm quét QR để quét và xem trên điện thoại</span>
-  </div>
-</form>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</body>
-</html>
+<!--<div class="chat-container">-->
+<!--  <h1 th:text="{}"></h1>-->
+<!--  <div id="chat-messages"></div>-->
+<!--</div>-->
+<!--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
+<!--</body>-->
+<!--</html>-->
