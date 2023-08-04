@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security4"
       lang="en">
 <tr sec:authorize="hasAnyAuthority('ADMIN')">
-<head th:replace="@{layout/layoutAdmin} :: header(Levent-Admin)">
+<head th:replace="@{layout/layoutAdmin} :: header(TocoToco)">
 </head>
 <body class="sb-nav-fixed" style="background-color: whitesmoke;">
 <nav th:replace="@{layout/layoutAdmin} :: header_top"></nav>
@@ -28,7 +28,7 @@
                 <th scope="col">Loại sản phẩm</th>
                 <th scope="col">Mô tả</th>
                 <th scope="col">Giá</th>
-                <th scope="col">Tồn kho</th>
+                <th scope="col">Số lượng</th>
                 <th scope="col">Trạng thái</th>
                 <th scope="col">Đơn vị tính</th>
                 <th scope="col"></th>

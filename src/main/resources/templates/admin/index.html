@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4"
       lang="en">
 <tr sec:authorize="hasAnyAuthority('ADMIN')">
-<head th:replace="@{layout/layoutAdmin} :: header(Levent-Admin)"></head>
+<head th:replace="@{layout/layoutAdmin} :: header(TocoToco)"></head>
 <body class="sb-nav-fixed"  style="background-color: whitesmoke;">
 <nav th:replace="@{layout/layoutAdmin} :: header_top"></nav>
 <div id="layoutSidenav">
