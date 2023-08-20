@@ -45,7 +45,7 @@ public class CartController {
         List<Location> location = this.locationService.getAllLoaction();
         model.addAttribute("location", location);
         model.addAttribute("user", user);
-        return "/Cart";
+        return "cart";
     }
 //@GetMapping("/cart")
 //public String viewCart(Model model, HttpSession session, Authentication authentication) {
