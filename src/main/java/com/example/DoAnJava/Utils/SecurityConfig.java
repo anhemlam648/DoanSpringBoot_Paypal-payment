@@ -42,14 +42,14 @@ public class SecurityConfig {
         return http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers( "/**", "/js/**", "/","/register","/404")
+                        .requestMatchers( "/**", "/js/**", "/","/register","/cart","/404")
                         .permitAll()
 //                        .requestMatchers( "/oauth2/**")
 //                        .permitAll()
                         .requestMatchers("/admin/product")
                         .hasAnyAuthority("ADMIN")
-                        .requestMatchers("/product/list")
-                        .hasAnyAuthority("ADMIN","USER")
+//                        .requestMatchers("/product/list")
+//                        .hasAnyAuthority("ADMIN","USER")
                         .anyRequest().authenticated()
 
                 )
@@ -67,6 +67,9 @@ public class SecurityConfig {
                         .defaultSuccessUrl("/")
                         .permitAll()
 
+                )
+                .oauth2Login(oauth2Login -> oauth2Login
+                        .loginPage("/login")
                 )
 //                .oauth2Login(oauth2 -> oauth2)
 //                        .userInfoEndpoint(userInfo -> userInfo

@@ -75,18 +75,18 @@
                             <h5 class="card-title" th:text="${product.name}"></h5>
                             <p class="card-text text-truncate " th:text="${product.description}"></p>
                             <h5 class="card-text text-danger m-1 product_price" th:text="${product.price}">VNĐ</h5>
-                            <tr sec:authorize="!hasAnyAuthority('USER','ADMIN')" th:remove="tag">
-                                <a th:if="${user == null}" th:href="@{/login}" class="btn btn-lg btn-dark" onclick="thongbao()">Thêm vào giỏ hàng</a>
-                                <script>
-                                        function thongbao() {
-                                        alert('Bạn cần đăng nhập hoặc đăng ký để thêm sản phẩm vào giỏ hàng.');
-                                    }
-                                </script>
-                            </tr>
-                            <tr sec:authorize="hasAnyAuthority('USER','ADMIN')">
+<!--                            <tr sec:authorize="!hasAnyAuthority('USER','ADMIN')" th:remove="tag">-->
+<!--                                <a th:if="${user == null}" th:href="@{/login}" class="btn btn-lg btn-dark" onclick="thongbao()">Thêm vào giỏ hàng</a>-->
+<!--                                <script>-->
+<!--                                        function thongbao() {-->
+<!--                                        alert('Bạn cần đăng nhập hoặc đăng ký để thêm sản phẩm vào giỏ hàng.');-->
+<!--                                    }-->
+<!--                                </script>-->
+<!--                            </tr>-->
+<!--                            <tr sec:authorize="hasAnyAuthority('USER','ADMIN')">-->
                                 <a th:href="@{/cart/add(id=${product.id},imageList=${product.urlImageThumbnail},name=${product.name},price=${product.price}, quantity=1)}"
                                    class="btn btn-lg btn-dark add-to-cart-button">Thêm vào giỏ hàng</a>
-                            </tr>
+<!--                            </tr>-->
                         </div>
                     </a>
             </div>
@@ -108,10 +108,10 @@ $(document).ready(function() {
       type: 'GET',
       success: function(response) {
         alert('Đã thêm thành công sản phẩm vào giỏ hàng!!');
-      },
-      error: function() {
-        alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng.');
       }
+<!--      error: function() {-->
+<!--        alert('Đã xảy ra lỗi khi thêm sản phẩm vào giỏ hàng.');-->
+<!--      }-->
     });
   });
 });

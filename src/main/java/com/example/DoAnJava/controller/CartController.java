@@ -18,7 +18,6 @@ import java.util.List;
 
 @Controller
 @SessionAttributes("cart")
-
 public class CartController {
     @Autowired
     private CartService cartService;
@@ -32,8 +31,8 @@ public class CartController {
     public String viewCart(Model model, HttpSession session, Authentication authentication) {
 
         Cart cart = (Cart) model.getAttribute("cart");
-
-
+//
+//
         if (cart == null) {
             cart = new Cart();
             model.addAttribute("cart", cart);
@@ -46,8 +45,33 @@ public class CartController {
         List<Location> location = this.locationService.getAllLoaction();
         model.addAttribute("location", location);
         model.addAttribute("user", user);
-        return "cart";
+        return "/Cart";
     }
+//@GetMapping("/cart")
+//public String viewCart(Model model, HttpSession session, Authentication authentication) {
+//
+//    Cart cart = (Cart) model.getAttribute("cart");
+//
+//    if (cart == null) {
+//        cart = new Cart();
+//        model.addAttribute("cart", cart);
+//    }
+//
+//    if (authentication != null) {
+//        var name = authentication.getName();
+//        var user = this.userService.findUserByUserName(name);
+//        model.addAttribute("userId", user.getId());
+//        model.addAttribute("user", user);
+//    }
+//
+//    model.addAttribute("totalPrice", cartService.getSumPrice(session));
+//    model.addAttribute("items", cart.getItems());
+//
+//    List<Location> location = this.locationService.getAllLoaction();
+//    model.addAttribute("location", location);
+//
+//    return "cart";
+//}
     //@RequestMapping("/cart/add/{id}") id product
     //public String addCart(Cart cart=new Cart(),@RequestParam Long id, HttpSession session)
     //String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/"+id;

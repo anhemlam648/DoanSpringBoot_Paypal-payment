@@ -2,9 +2,12 @@ package com.example.DoAnJava.controller;
 
 import com.example.DoAnJava.DTO.CreateProductDto;
 import com.example.DoAnJava.DTO.ProductDto;
+import com.example.DoAnJava.daos.CartItem;
 import com.example.DoAnJava.entity.Product;
+import com.example.DoAnJava.services.CartService;
 import com.example.DoAnJava.services.FirebaseService;
 import com.example.DoAnJava.services.ProductService;
+import jakarta.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import javax.swing.plaf.PanelUI;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -30,6 +34,9 @@ public class ProductController {
     private FirebaseService firebaseService;
     @Autowired
     private RestTemplate restTemplate;
+
+    @Autowired
+    private CartService cartService;
 
     /* TODO create api list products*/
     /*products by category*/
