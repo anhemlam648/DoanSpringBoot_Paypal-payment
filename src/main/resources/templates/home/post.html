@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="@{layout/layoutClient} :: link-bootstrap"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-main-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-base-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-font-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-rob-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: script-jquery"></th:block>
+    <style>
+        .app__container{
+            height: 600px;
+
+          .app__container p {
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    </style>
+</head>
+<body class="app">
+<th:block th:replace="@{layout/layoutClient} :: head_top"></th:block>
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "106172929230177");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+<!-- Your SDK code -->
+<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v17.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+<div class="app__container" style="margin-top: 150px;" >
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div data-elementor-type="wp-page" data-elementor-id="1273" class="elementor elementor-1273">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-99fb85 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="99fb85" data-element_type="section">
+                <div class="elementor-container elementor-column-gap-default">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1ce84291" data-id="1ce84291" data-element_type="column">
+                        <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-element elementor-element-4bb69a65 elementor-widget elementor-widget-text-editor" data-id="4bb69a65" data-element_type="widget" data-widget_type="text-editor.default">
+                                <div class="elementor-widget-container">
+                                    <p><!-- wp:heading --></p>
+                                    <h2 style="text-align: center;"><strong><div class="text-2">KHÁM PHÁ TOCOTOCO NHẬN NGAY KHUYẾN MÃI</div></strong></h2>
+                                    <p><!-- /wp:heading --></p>
+                                    <p><!-- wp:table --></p>
+                                    <figure class="wp-block-table" style="margin: 0 auto;">
+                                        <table style="font-size: 20px; border-collapse: separate; border-spacing: 20px;">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a class="card-news" href="https://tocotocotea.com/blogs/tocotoco-nang-tam-gia-tri-nong-san-viet/" style="display: inline-block; vertical-align: middle; text-decoration: none;">
+                                                        <div class="wrap-card-image" style="margin-right: 10px; display: inline-block;">
+                                                            <img class="card-image" src="https://tocotocotea.com/wp-content/uploads/2021/12/SPM_CHOCO_zalo-1.png" style="max-width: 200px;">
+                                                        </div>
+                                                        <div class="card-info" style="display: inline-block; font-size: 14px; vertical-align: middle;">
+                                                            <div class="card-title" style="font-weight: bold;">Tâm huyết nâng tầm giá trị nông sản Việt của ToCoToCo</div>
+                                                            <div class="card-description" style="margin-top: 5px;">Theo zingnews.vn – Trong 8 năm phát triển, ToCoToCo không ngừng theo đuổi sứ mệnh xây dựng một thương hiệu trà sữa từ nông sản Việt uy tín, chất lượng. […]</div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a class="card-news" href="https://tocotocotea.com/blogs/choco-ngu-coc-kem-cafe-hong-tra-ngu-coc-kem-cafe/" style="display: inline-block; vertical-align: middle; text-decoration: none;">
+                                                        <div class="wrap-card-image" style="margin-right: 10px; display: inline-block;">
+                                                            <img class="card-image" src="https://tocotocotea.com/wp-content/uploads/2021/12/SPM_CHOCO_zalo.png" style="max-width: 200px;">
+                                                        </div>
+                                                        <div class="card-info" style="display: inline-block; font-size: 14px; vertical-align: middle;">
+                                                            <div class="card-title" style="font-weight: bold;">VỊ GIÒN TAN – GIÁNG SINH RỘN RÀNG CÙNG CHOCO NGŨ CỐC KEM CAFÉ VÀ HỒNG TRÀ NGŨ CỐC KEM CAFÉ</div>
+                                                            <div class="card-description" style="margin-top: 5px;">Ỏ, ToCoToCo món gì mới đây ta?! Món gì mà là lạ, vừa có vị socola ngọt ngào, có vị hồng trà đậm đà, mà còn được kết hợp cùng […]</div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a class="card-news" href="https://tocotocotea.com/blogs/cau-chuyen-thuong-hieu/tocotoco-chay-cung-hang-tram-hoc-sinh-amsterdam-va-chuyen-ngoai-ngu-trong-chuong-trinh-camp-aletheia/" style="display: inline-block; vertical-align: middle; text-decoration: none;">
+                                                        <div class="wrap-card-image" style="margin-right: 10px; display: inline-block;">
+                                                            <img class="card-image" src="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-thumb-2-scaled.jpg" style="max-width: 200px;">
+                                                        </div>
+                                                        <div class="card-info" style="display: inline-block; font-size: 14px; vertical-align: middle;">
+                                                            <div class="card-title" style="font-weight: bold;">ToCoToCo “cháy” cùng hàng trăm học sinh Amsterdam và Chuyên Ngoại Ngữ trong chương trình Camp Aletheia</div>
+                                                            <div class="card-description" style="margin-top: 5px;">Tiếp nối các chương trình hướng đến cộng đồng và tài trợ sân chơi bổ ích cho các bạn học sinh sinh viên, ToCoToCo tự hào khi đồng hành cùng […]</div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a class="card-news" href="https://tocotocotea.com/blogs/tocotoco-nhan-doi-su-ngot-ngao-mua-le-hoi/" style="display: inline-block; vertical-align: middle; text-decoration: none;">
+                                                        <div class="wrap-card-image" style="margin-right: 10px; display: inline-block;">
+                                                            <img class="card-image" src="https://tocotocotea.com/wp-content/uploads/2021/12/SPM_CHOCO_zalo-1.png" style="max-width: 200px;">
+                                                        </div>
+                                                        <div class="card-info" style="display: inline-block; font-size: 14px; vertical-align: middle;">
+                                                            <div class="card-title" style="font-weight: bold;">Cùng ToCoToCo nhân đôi sự ngọt ngào mùa lễ hội</div>
+                                                            <div class="card-description" style="margin-top: 5px;">Theo suckhoedoisong.vn – Nhấn nhá chút vị đậm đà từ socola và hồng trà kết hợp hương thơm beo béo của macchiato kem cà phê thêm chút topping hạt ngũ […]</div>
+                                                        </div>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!--<div>-->
+<!--  <a href="/chat/zalo" class="header__nav_bot-link" style="position: fixed; bottom: 20px; right: 20px; z-index: 90; transition: transform 0.3s ease;">-->
+<!--    <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" style="width: 50px;">-->
+<!--  </a>-->
+<!--</div>-->
+<div>
+    <th:block th:replace="@{layout/layoutClient} :: footer"></th:block>
+</div>
+</body>
+</html>

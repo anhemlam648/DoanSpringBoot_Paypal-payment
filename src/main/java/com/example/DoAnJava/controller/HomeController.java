@@ -1,5 +1,6 @@
 package com.example.DoAnJava.controller;
 
+import com.example.DoAnJava.entity.Contact;
 import com.example.DoAnJava.entity.Product;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -46,8 +45,15 @@ public class HomeController {
         model.addAttribute("product", result);
         return "product/detail";
     }
-//    @GetMapping("/oauth2/callback/google")
-//    public String oauth2LoginCallback(@AuthenticationPrincipal OAuth2User principal) {
-//        return "redirect:/";
-//    }
+
+    @GetMapping("/contact")
+    public String showContactForm(Model model) {
+        model.addAttribute("contact", new Contact());
+        return "product/detail";
+    }
+    @PostMapping("/contact")
+    public String submitContactForm(@ModelAttribute("contact") Contact contact, Model model) {
+        model.addAttribute("contact", contact);
+        return "product/detail";
+    }
 }
