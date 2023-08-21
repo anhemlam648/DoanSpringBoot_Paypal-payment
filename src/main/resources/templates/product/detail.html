@@ -72,6 +72,40 @@
         <div class="col-12 col-lg-6" style="margin-top: -0px;">
             <h2 id="productName"  th:text="${product.name}"></h2>
             <h4 class="my-4 product_price"><span  id="price" th:text="${product.price}"> </span></h4>
+            <button class="like-button" onclick="toggleLike()">🤍 Thích</button>
+            <span class="like-count">0</span> Người thích
+            <script>
+                       const storedLikeCount = localStorage.getItem('likeCount');
+            let likeCount = storedLikeCount ? parseInt(storedLikeCount) : 0;
+            let isLiked = false;
+
+            function toggleLike() {
+              if (isLiked) {
+                likeCount--;
+              } else {
+                likeCount++;
+              }
+
+              isLiked = !isLiked;
+              updateUI();
+              saveLikeCountToLocalStorage();
+            }
+
+            function updateUI() {
+              const likeButton = document.querySelector('.like-button');
+              const likeCountElement = document.querySelector('.like-count');
+
+              likeButton.innerText = isLiked ? '💖 Bỏ thích' : '🤍 Thích';
+              likeCountElement.innerText = likeCount;
+            }
+
+            function saveLikeCountToLocalStorage() {
+              localStorage.setItem('likeCount', likeCount);
+            }
+
+            // Cập nhật giao diện ban đầu
+            updateUI();
+            </script>
             <h4 class="my-4 "><span  id="cate" th:text="${product.productType.name +' - '+ product.category.name}"> </span></h4>
 <!--            <td sec:authorize="hasAnyAuthority('ADMIN','USER')">-->
             <div class="d-grid my-4">

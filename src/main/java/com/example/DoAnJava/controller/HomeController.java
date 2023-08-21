@@ -46,14 +46,14 @@ public class HomeController {
         return "product/detail";
     }
 
-    @GetMapping("/contact")
-    public String showContactForm(Model model) {
-        model.addAttribute("contact", new Contact());
-        return "product/detail";
-    }
-    @PostMapping("/contact")
-    public String submitContactForm(@ModelAttribute("contact") Contact contact, Model model) {
-        model.addAttribute("contact", contact);
-        return "product/detail";
-    }
+//    @GetMapping("/contact")
+//    public String showContactForm(Model model) {
+//        model.addAttribute("contact", new Contact());
+//        return "home/contact";
+//    }
+//    @PostMapping("/showcontact")
+//    public String submitContactForm(@ModelAttribute("contact") Contact contact, Model model) {
+//        model.addAttribute("contact", contact);
+//        return "home/detail";
+//    }
 }

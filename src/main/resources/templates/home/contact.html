@@ -1,0 +1,61 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <th:block th:replace="@{layout/layoutClient} :: link-bootstrap"></th:block>-->
+<!--    <th:block th:replace="@{layout/layoutClient} :: link-main-css"></th:block>-->
+<!--    <th:block th:replace="@{layout/layoutClient} :: link-base-css"></th:block>-->
+<!--    <th:block th:replace="@{layout/layoutClient} :: link-font-css"></th:block>-->
+<!--    <th:block th:replace="@{layout/layoutClient} :: link-rob-css"></th:block>-->
+<!--    <th:block th:replace="@{layout/layoutClient} :: script-jquery"></th:block>-->
+<!--</head>-->
+<!--<body class="app">-->
+<!--<th:block th:replace="@{layout/layoutClient} :: head_top"></th:block>-->
+
+<!--<div id="fb-root"></div>-->
+<!--<div id="fb-customer-chat" class="fb-customerchat"></div>-->
+<!--<script>-->
+<!--        var chatbox = document.getElementById('fb-customer-chat');-->
+<!--        chatbox.setAttribute("page_id", "106172929230177");-->
+<!--        chatbox.setAttribute("attribution", "biz_inbox");-->
+<!--</script>-->
+<!--<script>-->
+<!--        window.fbAsyncInit = function() {-->
+<!--            FB.init({-->
+<!--                xfbml: true,-->
+<!--                version: 'v17.0'-->
+<!--            });-->
+<!--        };-->
+
+<!--        (function(d, s, id) {-->
+<!--            var js, fjs = d.getElementsByTagName(s)[0];-->
+<!--            if (d.getElementById(id)) return;-->
+<!--            js = d.createElement(s); js.id = id;-->
+<!--            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';-->
+<!--            fjs.parentNode.insertBefore(js, fjs);-->
+<!--        }(document, 'script', 'facebook-jssdk'));-->
+<!--</script>-->
+
+<!--<div class="app__container">-->
+<!--    <div class="comment-section">-->
+<!--        <h2 style="text-align: left; color: white;"><strong>BÌNH LUẬN</strong></h2>-->
+<!--        <div class="comment-section">-->
+<!--            <form th:action="@{/comment/comments}" method="post">-->
+<!--                <textarea name="message" class="form-control" id="message" rows="10" style="resize: horizontal; min-width: 100%; max-width: 100%;" placeholder="Nhập tin nhắn"></textarea>-->
+<!--                <button type="submit" class="btn btn-light">Gửi thông tin liên hệ</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    <div class="comment-list">-->
+<!--        <h2>Danh sách bình luận</h2>-->
+<!--        <ul class="comment-list">-->
+<!--            <li th:each="comment : ${comments}" th:text="${comment}"></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--    <th:block th:replace="@{layout/layoutClient} :: footer"></th:block>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
