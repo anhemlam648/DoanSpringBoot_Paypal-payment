@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="@{layout/layoutClient} :: link-bootstrap"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-main-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-base-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-font-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: link-rob-css"></th:block>
+    <th:block th:replace="@{layout/layoutClient} :: script-jquery"></th:block>
+    <style>
+        .app__container{
+            height: 600px;
+
+          .app__container p {
+        font-weight: bold;
+        font-size: 30px;
+    }
+        img {
+        display: inline-block; /* Hiển thị hình người cùng dòng với nội dung */
+        vertical-align: middle; /* Canh lề dọc để hình người nằm giữa dòng */
+        width: 30px;
+        height: 30px;
+        margin-right: 5px; /* Khoảng cách giữa hình người và nội dung bình luận */
+    }
+
+    </style>
+</head>
+<body class="app">
+<th:block th:replace="@{layout/layoutClient} :: head_top"></th:block>
+<!-- Messenger Plugin chat Code -->
+<div id="fb-root"></div>
+
+<!-- Your Plugin chat code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "106172929230177");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+<!-- Your SDK code -->
+<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v17.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+<div class="app__container" style="margin-top: 150px;" >
+
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <div data-elementor-type="wp-page" data-elementor-id="1273" class="elementor elementor-1273">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-99fb85 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="99fb85" data-element_type="section">
+                <div class="elementor-container elementor-column-gap-default">
+                    <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-1ce84291" data-id="1ce84291" data-element_type="column">
+                        <div class="elementor-widget-wrap elementor-element-populated">
+                            <div class="elementor-element elementor-element-4bb69a65 elementor-widget elementor-widget-text-editor" data-id="4bb69a65" data-element_type="widget" data-widget_type="text-editor.default">
+                                <div class="elementor-widget-container">
+                                    <p><!-- wp:heading --></p>
+                                    <h2 style="text-align: center;"><strong>Đánh Giá</strong></h2>
+                                    <p><!-- /wp:heading --></p>
+                                    <p><!-- wp:table --></p>
+                                    <figure class="wp-block-table" style="margin: 0 auto;">
+                                        <table style="font-size: 20px; border-collapse: separate; border-spacing: 20px;">
+                                            <tbody>
+                                            <td>
+                                                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                                                    <textarea class="dropfirst textarea txtEditor" placeholder="Mời bạn thảo luận, vui lòng nhập tiếng Việt có dấu" onclick="" id="commentText" spellcheck="false" style="border-radius: 5px; padding: 10px; width: 300px;"></textarea>
+                                                    <button id="addCommentBtn" style="border-radius: 5px; padding: 5px 10px; background-color: #007bff !important; color: white !important; border: none !important; cursor: pointer; height: 30px; width: 100px; margin-top: 10px;">Bình luận</button>
+                                                </div>
+                                                <div id="commentList">
+                                                    <!-- -->
+                                                    <div th:each="comment : ${comments}" style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 20px; padding: 10px; margin: 10px;">
+                                                        <img src="https://banner2.cleanpng.com/20180811/oy/kisspng-computer-icons-clip-art-user-profile-image-member-svg-png-icon-free-download-288552-onli-5b6f6bc83d0489.8542259415340287442499.jpg" style="width: 20px; height: 30px; margin-right: 10px; border-radius: 50%;">
+                                                        <span th:text="${comment.content}" style="flex: 1;"></span>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <script>
+                                                const addCommentBtn = document.getElementById("addCommentBtn");
+                                                const commentText = document.getElementById("commentText");
+                                                const commentList = document.getElementById("commentList");
+
+                                                // Load comments from LocalStorage if available
+                                                let comments = JSON.parse(localStorage.getItem("comments")) || [];
+
+                                                // Render comments from LocalStorage on page load
+                                                comments.forEach(comment => {
+                                                    renderComment(comment);
+                                                });
+
+                                                addCommentBtn.addEventListener("click", () => {
+                                                    const newComment = commentText.value;
+                                                    if (newComment.trim() !== "") {
+                                                        fetch("/comments", {
+                                                            method: "POST",
+                                                            headers: {
+                                                                "Content-Type": "application/json"
+                                                            },
+                                                            body: JSON.stringify({
+                                                                content: newComment
+                                                            })
+                                                        })
+                                                        .then(response => response.json())
+                                                        .then(comment => {
+                                                            commentText.value = "";
+                                                            comments.push(comment); // Add the comment to the local array
+                                                            renderComment(comment);
+                                                            saveCommentsToLocalStorage(comments); // Save comments to LocalStorage
+                                                        })
+                                                        .catch(error => console.error("Error adding comment:", error));
+                                                    }
+                                                });
+
+                                                function renderComment(comment) {
+                                                    const commentDiv = document.createElement("div");
+                                                    commentDiv.innerText = comment.content;
+                                                    commentList.appendChild(commentDiv);
+                                                }
+
+                                                function saveCommentsToLocalStorage(comments) {
+                                                    localStorage.setItem("comments", JSON.stringify(comments));
+                                                }
+                                            </script>
+                                            </tbody>
+                                        </table>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<!--<div>-->
+<!--  <a href="/chat/zalo" class="header__nav_bot-link" style="position: fixed; bottom: 20px; right: 20px; z-index: 90; transition: transform 0.3s ease;">-->
+<!--    <img src="https://page.widget.zalo.me/static/images/2.0/Logo.svg" style="width: 50px;">-->
+<!--  </a>-->
+<!--</div>-->
+<div>
+    <th:block th:replace="@{layout/layoutClient} :: footer"></th:block>
+</div>
+</body>
+</html>
