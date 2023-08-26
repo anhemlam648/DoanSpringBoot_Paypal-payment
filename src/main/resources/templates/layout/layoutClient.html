@@ -136,6 +136,50 @@
                     border: 1px solid yellow;
                     /* Other existing styles */
                 }
+<!--                .modal {-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            position: fixed;-->
+<!--            top: 0;-->
+<!--            left: 0;-->
+<!--            width: 100%;-->
+<!--            height: 100%;-->
+<!--            background-color: rgba(0, 0, 0, 0.7);-->
+<!--            z-index: 9999; /* Ensure the modal is on top of other content */-->
+<!--        }-->
+
+<!--        .modal-content {-->
+<!--            background-color: white;-->
+<!--            padding: 20px;-->
+<!--            max-width: 80%;-->
+<!--            max-height: 80%;-->
+<!--            overflow: auto;-->
+<!--            text-align: center;-->
+<!--            position: relative;-->
+<!--        }-->
+
+<!--        .close-button {-->
+<!--            position: absolute;-->
+<!--            top: 10px;-->
+<!--            right: 10px;-->
+<!--            cursor: pointer;-->
+<!--            font-size: 24px;-->
+<!--        }-->
+
+<!--        /* Style for the image */-->
+<!--        .modal-content img {-->
+<!--            max-width: 100%;-->
+<!--            max-height: 100%;-->
+<!--        }-->
+
+<!--        /* Style for the link */-->
+<!--        .advertisement-link {-->
+<!--            margin-top: 20px;-->
+<!--            display: inline-block;-->
+<!--            text-decoration: none;-->
+<!--            color: blue;-->
+<!--        }-->
         </style>
 <body class="light">
 <script>
@@ -185,7 +229,6 @@
             }
         });
     </script>
-
 <div class="app">
     <div th:fragment="head_top">
         <nav class="header_navbar" style=" position: sticky;" >
@@ -198,6 +241,30 @@
                 </ul>
             </div>
         </nav>
+        <div id="myModal" class="modal" style="display: flex; justify-content: center; align-items: center; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); z-index: 9999;">
+            <div class="modal-content" style="background-color: white; padding: 20px; max-width: 450px; max-height: 80%; overflow: auto; text-align: center; position: relative;">
+                <span class="close-button" onclick="closeModal()" style="position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 32px;">&times;</span>
+                <a href="http://shoptopping-89b153dfa8dc.herokuapp.com/api/product/list" target="_blank">
+                    <img src="https://tocotocotea.com/wp-content/uploads/2023/07/74bd2a98724ca112f85d.jpg" style="width: 410px;" alt="Advertisement">
+                </a>
+                <!-- Add any additional content you want in the modal -->
+            </div>
+        </div>
+
+        <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "flex";
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Open the modal when the page loads
+        window.onload = openModal;
+        </script>
         <header class="head" style="position: sticky;  height: 10px;">
             <div class="Host__Store">
                 <div class="icon__function_list icon__function_search">
