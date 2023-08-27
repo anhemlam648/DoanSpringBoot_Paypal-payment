@@ -9,6 +9,7 @@ import com.example.DoAnJava.entity.ProductType;
 import com.example.DoAnJava.repository.IOrderDetailRepository;
 import com.example.DoAnJava.repository.IOrderRepository;
 import com.example.DoAnJava.repository.IProductRepository;
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class OrderDetailService {
 
     @Autowired
     private IProductRepository productRepository;
+
 
 
     @Autowired
@@ -54,6 +56,7 @@ public class OrderDetailService {
         orderDetailsave.setProduct(productPrice);
        */
         return orderDetailRepository.save(orderDetailsave);
+
     }
     public OrderDetail updateOrdersDetail(CreateOrdersDetailDto orderdetail, Long id) {
         OrderDetail orderDetailsave = this.orderDetailRepository.findById(id).orElse(null);
