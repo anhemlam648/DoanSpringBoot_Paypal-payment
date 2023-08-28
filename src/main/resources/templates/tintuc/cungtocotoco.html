@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Tin tức - ToCoToCo</title>
+  <!-- Include your CSS and other head elements here -->
+</head>
+<body>
+<div class="header__nav_bot" style="height: 80px; background: linear-gradient(to right, #FFC0CB, #FFC0CB);">
+  <ul class="header__nav_bot-list" style="display: flex; justify-content: center; align-items: center; padding: 0; margin: 0; list-style: none;">
+    <li class="header__nav_bot-item" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/}" style="font-weight: bold; color: white; text-decoration: underline;">Trang chủ</a>
+    </li>
+    <li class="header__nav_bot-item" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/introduction/showintroduction}" style="font-weight: bold; color: white; text-decoration: underline;">Giới thiệu</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/product/products}" style="font-weight: bold; color: white; text-decoration: underline;">Sản phẩm</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/address/show}" style="font-weight: bold; color: white; text-decoration: underline;">Cửa Hàng</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/postshow/post}" style="font-weight: bold; color: white; text-decoration: underline;">Tin tức</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex">
+      <a class="header__nav_bot-link" th:href="@{/danhgia/form}" style="font-weight: bold; color: white; text-decoration: underline;">Đánh giá</a>
+    </li>
+  </ul>
+</div>
+<div class="category-main">
+  <div class="category-main">
+    <div class="post-title" style="font-weight: bold;">
+      Cùng ToCoToCo nhân đôi sự ngọt ngào mùa lễ hội            </div>
+    <div class="post-date">Ngày đăng: 06/01/2022</div>
+    <p>Theo <a href="https://suckhoedoisong.vn/cung-tocotoco-nhan-doi-su-ngot-ngao-mua-le-hoi-169220105171425566.htm">suckhoedoisong.vn</a> – Nhấn nhá chút vị đậm đà từ socola và hồng trà kết hợp hương thơm beo béo của macchiato kem cà phê thêm chút topping hạt ngũ cốc trái cây giòn tan của Choco ngũ cốc kem cafe và Hồng trà ngũ cốc kem cafe từ thương hiệu ToCoToCo mang đến cơn gió mới đọng lại hương vị quyến rũ làm bạn nhớ mãi mùa lễ hội năm nay!</p>
+    <p>Đón chào năm mới, các thành phố lại khoác lên mình chiếc áo mới lộng lẫy. Đây cũng là một trong những dịp hiếm hoi trong năm, không khí lễ hội vui tươi tràn ngập khắp Sài Gòn và Hà Nội. Tiết trời mát mẻ, dễ chịu, khô ráo thích hợp để ra đường, hòa vào dòng người đông vui. Hưởng ứng giai điệu tưng bừng đó, ToCoToCo cũng kịp trình làng một sắc màu hương vị mới để chào đón những vị khách của mình với hai sản phẩm: Choco ngũ cốc kem cafe và Hồng trà ngũ cốc kem cafe.</p>
+    <p>Có thể nói rằng ToCoToCo là một trong những thương hiệu đồ uống hiếm hoi hưởng ứng không khí các mùa lễ hội từ hình thức đến hương vị của các nước uống. Bởi thế, cứ đến dịp lễ hội là các tín đồ mê trà sữa lại tích cực tìm đến ToCoToCo để thưởng thức các vị thức uống đặc trưng và trải nghiệm những hương vị mới.</p>
+    <div style="text-align: center;">
+      <div class="wp-block-image is-style-default">
+        <figure class="aligncenter size-large is-resized">
+          <img loading="lazy" src="https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe.jpeg" alt="ToCoToCo" class="wp-image-217970" width="549" height="365" srcset="https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe.jpeg 640w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-300x200.jpeg 300w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-600x400.jpeg 600w" sizes="(max-width: 549px) 100vw, 549px">
+          <figcaption>Cận cảnh 2 sản phẩm mới Choco ngũ cốc kem cafe và Hồng trà ngũ cốc kem cafe</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>Choco ngũ cốc kem cafe và Hồng trà ngũ cốc kem cafe là sự giao thoa tinh tế giữa hương vị ngọt ngào của socola, hương hồng trà thơm mát xen lẫn vị thơm béo của macchiato kem cà phê, mang đến điểm nhấn mới lạ từ mùi vị và hương thơm riêng biệt như một trải nghiệm độc đáo, hứng khởi, cho một mùa lễ hội rộn ràng đến với bạn trẻ.</p>
+    <p>Điểm nhấn tạo nên hương vị khác biệt của sản phẩm mới là chính là phần topping trân châu sợi dai dai, “sánh đôi” cùng ngũ cốc hạt trái cây giòn giòn, ngọt ngọt ăn vào giòn tan kích thích vị giác. Sản phẩm vừa được ra mắt, đã bổ sung vào bộ sưu tập dòng thức uống tinh hoa nông sản Việt đồ sộ của nhà ToCoToCo.</p>
+    <div style="text-align: center;">
+      <div class="wp-block-image is-style-default">
+        <figure class="aligncenter size-large is-resized">
+          <img loading="lazy" src="https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-2.jpeg" alt="ToCoToCo" class="wp-image-217971" width="505" height="505" srcset="https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-2.jpeg 640w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-2-300x300.jpeg 300w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-2-150x150.jpeg 150w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-2-600x600.jpeg 600w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-2-100x100.jpeg 100w" sizes="(max-width: 505px) 100vw, 505px">
+          <figcaption>Choco ngũ cốc kem cafe với hương vị socola ngọt ngào xen lẫn chút đắng ngon khó cưỡng</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>Được tạo nên từ những nguyên liệu “xịn xò” từ nông sản Việt, chắc chắn chất lượng cũng thuộc hàng tuyệt hảo. Đây cũng chính là điểm nổi bật, khác biệt của ToCoToCo khi có hẳn một hệ thống những tiêu chuẩn từ khâu chọn lọc nguyên liệu đến pha chế, kiểm định chất lượng để cho ra đời những món thức uống thơm ngon, chất lượng. Đặc biệt, trân châu ToCoToCo làm từ tinh bột sắn, được trải qua quá trình “tôi luyện” và tẩm mật ong ngọt ngào nên luôn được khách hàng ưu ái gọi với cái tên “topping hảo hạng”.</p>
+    <p>Không chỉ vậy, sản phẩm mới của ToCoToCo chính là lựa chọn “vàng” cho sức khoẻ khi socola giúp giảm nguy cơ đau tim, đột quỵ, ngăn ngừa lão hóa và rất tốt cho làn da. Chỉ cần buổi chiều ngồi nhâm nhi Choco ngũ cốc kem cafe và Hồng trà ngũ cốc kem cafe là bạn sẽ thấy không khí mùa lễ hội ngập tràn trong lòng! Hương vị khiến bạn phải “wow” lên và chiều lòng tất cả những ai khó tính nhất vì rất vừa vặn, dễ chịu và không quá ngọt.</p>
+    <div style="text-align: center;">
+      <div class="wp-block-image is-style-default">
+        <figure class="aligncenter size-large is-resized">
+          <img loading="lazy" src="https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-3.jpeg" alt="ToCoToCo" class="wp-image-217972" width="499" height="499" srcset="https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-3.jpeg 640w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-3-300x300.jpeg 300w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-3-150x150.jpeg 150w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-3-600x600.jpeg 600w, https://tocotocotea.com/wp-content/uploads/2022/01/tocotoco-hong-tra-ngu-coc-kem-cafe-choco-ngu-coc-kem-cafe-3-100x100.jpeg 100w" sizes="(max-width: 499px) 100vw, 499px">
+          <figcaption>Hồng trà ngũ cốc kem cafe thơm ngon mà ai cũng muốn thưởng thức</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>Ra mắt đặc biệt vào mùa lễ hội, nhưng chắc chắn rằng cho dù thưởng thức ở bất kì mùa nào thì món này luôn chiếm trọn con tim của các bạn trẻ và khiến nhiều người “thòm thèm” phải uống bất kể ngày nào. Ngại gì mà không “lẹ làng” thưởng thức ngay các món ngon ngập trời này ngay nào.</p>
+    <p>Một tin vui là từ ngày 23/12/ 2021 đến ngày 12/ 01/ 2022, ToCoToCo đang có chương trình quay số trúng thưởng “Lễ hội rộn ràng, cùng rước xe sang”, với mỗi hóa đơn bất kì bạn sẽ được nhận ngay một mã số trúng thưởng để tham gia vòng quay may mắn. Đừng quên đón xem livestream quay số trên Fanpage ToCoToCo vào thứ 5 hàng tuần để “rinh” về chiếc xe máy điện Vinfast cực xịn xò hay voucher bộ mỹ phẩm nhà Innisfree nha.</p>
+    <p>Tìm hiểu thêm về ToCoToCo:</p>
+  </div>
+  <hr class="wp-block-separator">
+  <p><img draggable="false" role="img" class="emoji" alt="🍃" width="30px" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f343.svg"> ToCoToCo – Đậm vị thiên nhiên – Trọn vị hạnh phúc<br>Hotline: 𝟭𝟵𝟬𝟬 𝟲𝟯 𝟲𝟵 𝟯𝟲<br>Website: <a href="https://shoptopping-89b153dfa8dc.herokuapp.com/">https://tocotocotea.com/</a></p>
+</div>
+</div>
+</body>
+</html>

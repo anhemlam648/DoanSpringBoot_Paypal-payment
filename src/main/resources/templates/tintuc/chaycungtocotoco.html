@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Tin tức - ToCoToCo</title>
+  <!-- Include your CSS and other head elements here -->
+</head>
+<body>
+<div class="header__nav_bot" style="height: 80px; background: linear-gradient(to right, #FFC0CB, #FFC0CB);">
+  <ul class="header__nav_bot-list" style="display: flex; justify-content: center; align-items: center; padding: 0; margin: 0; list-style: none;">
+    <li class="header__nav_bot-item" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/}" style="font-weight: bold; color: white; text-decoration: underline;">Trang chủ</a>
+    </li>
+    <li class="header__nav_bot-item" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/introduction/showintroduction}" style="font-weight: bold; color: white; text-decoration: underline;">Giới thiệu</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/product/products}" style="font-weight: bold; color: white; text-decoration: underline;">Sản phẩm</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/address/show}" style="font-weight: bold; color: white; text-decoration: underline;">Cửa Hàng</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+      <a class="header__nav_bot-link" th:href="@{/postshow/post}" style="font-weight: bold; color: white; text-decoration: underline;">Tin tức</a>
+    </li>
+    <li class="header__nav_bot-item header__nav_bot-flex">
+      <a class="header__nav_bot-link" th:href="@{/danhgia/form}" style="font-weight: bold; color: white; text-decoration: underline;">Đánh giá</a>
+    </li>
+  </ul>
+</div>
+<div class="category-main">
+  <div class="category-main">
+    <div class="post-title" style="font-weight: bold;">
+      ToCoToCo “cháy” cùng hàng trăm học sinh Amsterdam và Chuyên Ngoại Ngữ trong chương trình Camp Aletheia            </div>
+    <div class="post-date">Ngày đăng: 29/07/2022</div>
+    <p><strong>Tiếp nối các chương trình hướng đến cộng đồng và tài trợ sân chơi bổ ích cho các bạn học sinh sinh viên, ToCoToCo tự hào khi đồng hành cùng chương trình Camp Aletheia – Trại hè tranh biện được tổ chức bởi hai CLB Puzzles Ams trường THPT chuyên Hà Nội – Amsterdam và CNN Puzzles trường THPT Chuyên Ngoại Ngữ vào ngày 22/07 vừa qua.</strong></p>
+    <p>Tự hào đồng hành cùng giới trẻ trong các chương trình và hoạt động bổ ích vào hè năm nay, thông qua chương trình Camp Aletheia – Trại hè tranh biện, ToCoToCo một lần nữa lan tỏa niềm vui và tiếp lửa đến các bạn học sinh trường THPT chuyên Hà Nội – Amsterdam và CNN Puzzles trường THPT Chuyên Ngoại Ngữ tổ chức tại trường Sentia School Hà Nội.</p>
+    <div style="text-align: center;">
+      <figure class="wp-block-image size-large">
+        <img loading="lazy" width="1024" height="640" src="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-1-1024x640.jpg" alt="" class="wp-image-262521" srcset="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-1-1024x640.jpg 1024w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-1-300x187.jpg 300w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-1-768x480.jpg 768w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-1-1536x960.jpg 1536w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-1-600x375.jpg 600w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-1.jpg 1794w" sizes="(max-width: 1024px) 100vw, 1024px">
+        <figcaption>ToCoToCo đồng hành cùng chương trình Camp Aletheia – Trại hè tranh biện</figcaption>
+      </figure>
+    </div>
+    <p>Trại hè tranh biện Camp Aletheia là hoạt động thường niên của đội ngũ Puzzles Hà Nội – một trong những tổ chức tranh biện hàng đầu tại Việt Nam. Đánh dấu sự trở lại vào hè năm nay, Camp Aletheia càng khẳng định vị trí dẫn đầu của mình trong cộng đồng tranh biện khi xây dựng nội dung độc đáo, mới lạ. Camp Aletheia là trại hè tranh biện đầu tiên và duy nhất bằng tiếng anh ở Việt Nam. Không chỉ mang lại kiến thức, kỹ năng tranh biện mà còn thúc đẩy khả năng ngôn ngữ của các bạn trẻ toàn Hà Nội.</p>
+    <div style="text-align: center;">
+      <div class="wp-block-image">
+        <figure class="aligncenter size-large">
+          <img loading="lazy" width="800" height="500" src="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-2-2.jpg" alt="" class="wp-image-262507" srcset="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-2-2.jpg 800w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-2-2-300x188.jpg 300w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-2-2-768x480.jpg 768w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-2-2-600x375.jpg 600w" sizes="(max-width: 800px) 100vw, 800px">
+          <figcaption>Các bạn trẻ đều rất thích thú thưởng thức những ly trà sữa thơm ngon, đậm vị</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>Tại đây, các bạn trẻ rất háo hức khi được thưởng thức những ly trà sữa ToCoToCo thơm ngon, đậm vị. ToCoToCo giúp bạn tìm thấy niềm vui bất tận, sự hào hứng trong từng hoạt động mà bạn tham gia. Đây chắc chắn là người bạn đồng hành hoàn hảo dành cho các bạn trẻ khi hè đến.</p>
+    <div style="text-align: center;">
+      <div class="wp-block-image">
+        <figure class="aligncenter size-large">
+          <img loading="lazy" width="1024" height="640" src="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-3-2-1024x640.jpg" alt="" class="wp-image-262508" srcset="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-3-2-1024x640.jpg 1024w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-3-2-300x187.jpg 300w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-3-2-768x480.jpg 768w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-3-2-1536x960.jpg 1536w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-3-2-600x375.jpg 600w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-3-2.jpg 1794w" sizes="(max-width: 1024px) 100vw, 1024px">
+          <figcaption>Từ sáng sớm, những ly trà sữa ToCoToCo đã có mặt tiếp sức cho các bạn trẻ</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>Trại hè tranh biện Camp Aletheia 2022 đã trao sứ mệnh tạo môi trường học tập chuyên nghiệp năng động đến các bạn trẻ mọi miền đất nước lan tỏa những giá trị cốt lõi của bộ môn tranh biện tới cộng đồng. Và ToCoToCo cùng một điểm chung là góp phần thắp sáng tri thức và sự sáng tạo trong các bạn trẻ.</p>
+    <div style="text-align: center;">
+      <figure class="wp-block-image size-large">
+        <img loading="lazy" width="1024" height="640" src="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-4-3-1024x640.jpg" alt="" class="wp-image-262509" srcset="https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-4-3-1024x640.jpg 1024w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-4-3-300x187.jpg 300w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-4-3-768x480.jpg 768w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-4-3-1536x960.jpg 1536w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-4-3-600x375.jpg 600w, https://tocotocotea.com/wp-content/uploads/2022/07/Hinh-4-3.jpg 1794w" sizes="(max-width: 1024px) 100vw, 1024px">
+        <figcaption>Các bạn nhỏ đều nâng ly trà sữa để bắt đầu cho “trận chiến” hùng biện của mình</figcaption>
+      </figure>
+    </div>
+    <p>Với tinh thần không ngừng đổi mới để nâng tầm trải nghiệm cho khách hàng, ToCoToCo một lần nữa gây xôn xao khi ra mắt thị trường phiên bản trà trà sữa tự pha Instant Milk Tea cực kỳ ấn tượng. Với thông điệp “Always Beside You” và đại sứ thương hiệu DJ Mie đã tạo làn sóng đổi mới và mang đến nhiều thông điệp ý nghĩa. Cô cũng là một trong những gương mặt GenZ trẻ trung, hiện đại, không ngại thử thách và sẵn sàng “cháy” hết mình với mọi cuộc chơi. Hãy để cuộc vui không bị gián đoạn cùng DJ Mie và Instant Milk Tea để vững tin sống đúng với đam mê bản thân.</p>
+    <p>Tháng 6 vừa qua, ToCoToCo chính thức ra mắt dòng sản phẩm mới Instant Milk Tea – Trà sữa tự pha với hương vị: Original Milk Tea (Vị Truyền Thống) và Strawberry Milk Tea (Vị Dâu Tây). Lựa chọn DJ Mie làm đại sứ thương hiệu cho Instant Milk Tea với thông điệp “Always Beside You”, ToCoToCo hi vọng sẽ mang nguồn năng lượng tích cực, sự trẻ trung, năng động, thời thượng đến các bạn trẻ.</p>
+    <p>Tìm hiểu thêm về ToCoToCo:</p>
+  </div>
+    <hr class="wp-block-separator">
+    <p><img draggable="false" role="img" class="emoji" alt="🍃" width="30px" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f343.svg"> ToCoToCo – Đậm vị thiên nhiên – Trọn vị hạnh phúc<br>Hotline: 𝟭𝟵𝟬𝟬 𝟲𝟯 𝟲𝟵 𝟯𝟲<br>Website: <a href="https://shoptopping-89b153dfa8dc.herokuapp.com/">https://tocotocotea.com/</a></p>
+  </div>
+</div>
+</body>
+</html>
