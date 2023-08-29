@@ -1,5 +1,8 @@
 package com.example.DoAnJava.controller;
 
+import com.example.DoAnJava.entity.User;
+import com.example.DoAnJava.repository.IUserRepository;
+import com.example.DoAnJava.repository.IUserRoleRepository;
 import com.example.DoAnJava.services.CartService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,9 @@ import com.example.DoAnJava.entity.Orders;
 public class PaymentController {
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private IUserRepository userRepository;
     @GetMapping
     public String addBookForm(Model model){
 

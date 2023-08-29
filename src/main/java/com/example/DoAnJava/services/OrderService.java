@@ -8,6 +8,7 @@ import com.example.DoAnJava.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -69,6 +70,7 @@ public class OrderService {
                     this.productRepository.save(product);// update sl
                 }
 
+
             }
             return true;
         } catch (Exception e) {
@@ -77,4 +79,6 @@ public class OrderService {
         }
         //
 
-    }}
+    }
+
+}

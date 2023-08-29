@@ -29,7 +29,7 @@ public class Evaluate {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setTo("vunghia467@gmail.com");
         msg.setSubject("Đánh giá");
-        msg.setText("Tên: " + name + "\nTin nhắn: " + message);
+        msg.setText("Tên: " + name + "\nEmail: " + email + "\nTin nhắn: " + message);
         javaMailSender.send(msg);
         return "danhgia/result";
     }

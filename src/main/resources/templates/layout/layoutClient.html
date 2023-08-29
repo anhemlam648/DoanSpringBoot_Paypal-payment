@@ -372,6 +372,9 @@
                             <li sec:authorize="hasAnyAuthority('ADMIN')" style="margin-right: 10px;">
                                 <a class="btn btn-outline-primary" href="/admin/product/list" style="width: 100px">Quản lý</a>
                             </li>
+                            <li style="margin-right: 10px;">
+                                <a class="btn btn-outline-primary" href="/" style="width: 100px">Điểm tích lũy</a>
+                            </li>
                             <li sec:authorize="isAuthenticated()" style="margin-right: 10px;">
                                 <form th:action="@{/logout}" method="post">
                                     <button class="btn btn-outline-danger" type="submit" style="width: 100px">Đăng xuất</button>
