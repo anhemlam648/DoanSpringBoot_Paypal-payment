@@ -65,13 +65,16 @@ public class OrderService {
                 this.orderDetailRepository.save(detail);
                 System.out.println("sau khi SAVE");
 
+
                 if (product != null) {
                     product.setQuantityStock(product.getQuantityStock() - item.getQuantity());
                     this.productRepository.save(product);// update sl
+
                 }
 
-
             }
+
+
             return true;
         } catch (Exception e) {
             System.out.println(e.getMessage());

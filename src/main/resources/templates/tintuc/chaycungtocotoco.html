@@ -74,4 +74,27 @@
   </div>
 </div>
 </body>
+<script>
+  const storedPointsData = localStorage.getItem('pointsData');
+  let pointsData = storedPointsData ? JSON.parse(storedPointsData) : {};
+
+  let loyaltyPoints = pointsData.loyaltyPoints || 0;
+
+  function increasePoints() {
+    const visitPoints = 2; // Số điểm tích lũy khi người dùng truy cập vào đường link
+    loyaltyPoints += visitPoints;
+    savePointsToLocalStorage();
+  }
+
+  function savePointsToLocalStorage() {
+    const updatedPointsData = {
+      loyaltyPoints: loyaltyPoints
+    };
+    localStorage.setItem('pointsData', JSON.stringify(updatedPointsData));
+  }
+
+  // Gọi hàm để tăng điểm mỗi khi trang được tải
+  increasePoints();
+</script>
+
 </html>

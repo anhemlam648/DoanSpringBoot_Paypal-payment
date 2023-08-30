@@ -83,4 +83,26 @@
   <p><img draggable="false" role="img" class="emoji" alt="🍃" width="30px" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f343.svg"> ToCoToCo – Đậm vị thiên nhiên – Trọn vị hạnh phúc<br>Hotline: 𝟭𝟵𝟬𝟬 𝟲𝟯 𝟲𝟵 𝟯𝟲<br>Website: <a href="https://shoptopping-89b153dfa8dc.herokuapp.com/">https://tocotocotea.com/</a></p>
 </div>
 </body>
+<script>
+  const storedPointsData = localStorage.getItem('pointsData');
+  let pointsData = storedPointsData ? JSON.parse(storedPointsData) : {};
+
+  let loyaltyPoints = pointsData.loyaltyPoints || 0;
+
+  function increasePoints() {
+    const visitPoints = 2; // Số điểm tích lũy khi người dùng truy cập vào đường link
+    loyaltyPoints += visitPoints;
+    savePointsToLocalStorage();
+  }
+
+  function savePointsToLocalStorage() {
+    const updatedPointsData = {
+      loyaltyPoints: loyaltyPoints
+    };
+    localStorage.setItem('pointsData', JSON.stringify(updatedPointsData));
+  }
+
+  // Gọi hàm để tăng điểm mỗi khi trang được tải
+  increasePoints();
+</script>
 </html>

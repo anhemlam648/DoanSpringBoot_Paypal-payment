@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Tổng điểm - ToCoToCo</title>
+    <!-- Include your CSS and other head elements here -->
+</head>
+<body>
+<div class="header__nav_bot" style="height: 80px; background: linear-gradient(to right, #FFC0CB, #FFC0CB);">
+    <ul class="header__nav_bot-list" style="display: flex; justify-content: center; align-items: center; padding: 0; margin: 0; list-style: none;">
+        <li class="header__nav_bot-item" style="margin-right: 20px;">
+            <a class="header__nav_bot-link" th:href="@{/}" style="font-weight: bold; color: white; text-decoration: underline;">Trang chủ</a>
+        </li>
+        <li class="header__nav_bot-item" style="margin-right: 20px;">
+            <a class="header__nav_bot-link" th:href="@{/introduction/showintroduction}" style="font-weight: bold; color: white; text-decoration: underline;">Giới thiệu</a>
+        </li>
+        <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+            <a class="header__nav_bot-link" th:href="@{/product/products}" style="font-weight: bold; color: white; text-decoration: underline;">Sản phẩm</a>
+        </li>
+        <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+            <a class="header__nav_bot-link" th:href="@{/address/show}" style="font-weight: bold; color: white; text-decoration: underline;">Cửa Hàng</a>
+        </li>
+        <li class="header__nav_bot-item header__nav_bot-flex" style="margin-right: 20px;">
+            <a class="header__nav_bot-link" th:href="@{/postshow/post}" style="font-weight: bold; color: white; text-decoration: underline;">Tin tức</a>
+        </li>
+        <li class="header__nav_bot-item header__nav_bot-flex">
+            <a class="header__nav_bot-link" th:href="@{/danhgia/form}" style="font-weight: bold; color: white; text-decoration: underline;">Đánh giá</a>
+        </li>
+    </ul>
+</div>
+<div class="category-main">
+    <h1>Điểm Của Người Dùng</h1>
+    <p>Tổng điểm: <span id="points-display">0</span></p>
+
+    <script>
+        const storedPointsData = localStorage.getItem('pointsData');
+        let pointsData = storedPointsData ? JSON.parse(storedPointsData) : {};
+
+        const loyaltyPoints = pointsData.loyaltyPoints || 0;
+
+        const pointsDisplay = document.getElementById('points-display');
+        pointsDisplay.textContent = loyaltyPoints;
+    </script>
+    <hr class="wp-block-separator">
+    <p><img draggable="false" role="img" class="emoji" alt="🍃" width="30px" src="https://s.w.org/images/core/emoji/14.0.0/svg/1f343.svg"> ToCoToCo – Đậm vị thiên nhiên – Trọn vị hạnh phúc<br>Hotline: 𝟭𝟵𝟬𝟬 𝟲𝟯 𝟲𝟵 𝟯𝟲<br>Website: <a href="https://shoptopping-89b153dfa8dc.herokuapp.com/">https://tocotocotea.com/</a></p>
+</div>
+</body>
+</html>
