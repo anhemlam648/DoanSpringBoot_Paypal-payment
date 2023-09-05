@@ -23,4 +23,8 @@ public interface IUserRepository extends JpaRepository<User, Long> {
 
     @Query(value = "SELECT r.name FROM role r INNER JOIN user_role ur " + " ON r.id = ur.role_id WHERE ur.user_id = ?1", nativeQuery = true)
     String[] getRolesOfUser(Long userId);
+
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(String email);
 }
