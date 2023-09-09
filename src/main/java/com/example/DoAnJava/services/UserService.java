@@ -44,6 +44,10 @@ public class UserService {
     }
 
     public User create(CreateUserDto user) {
+        if (userRepository.existsByUsername(user.getUsername()) || userRepository.existsByEmail(user.getEmail())) {
+            // Trả về null hoặc đối tượng rỗng tùy theo yêu cầu của bạn
+            return null;
+        }
         User usertoSave = new User();
         usertoSave.setUsername(user.getUsername());
         usertoSave.setPassword(user.getPassword());

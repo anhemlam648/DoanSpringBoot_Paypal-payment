@@ -17,7 +17,6 @@
         </ol>
         <hr />
         <form id="update-user-form" th:object="${user}" class="row g-3 px-5 shadow mx-5" style="background-color: white;">
-            <input hidden th:field="*{name}">
                 <div class="col-md-6">
                     <label class="form-label" >Tên người dùng:</label>
                     <input class="form-control" th:field="*{name}" >
@@ -46,7 +45,7 @@
                 </div>
 
             <div class="col-12">
-                <input  type="submit" class="btn btn-dark mb-3" value="Lưu thay đổi">
+                <a class="btn btn-dark mb-3" th:href="@{/authent/array}">Trở về</a>
             </div>
         </form>
         <div id="message"></div>
@@ -71,38 +70,38 @@ checkboxes.forEach(function(checkbox) {
   }
 });
 </script>-->
-<script>
-    // Lấy form và nút submit
-const form = document.getElementById('update-user-form');
-const submitBtn = form.querySelector('input[type="submit"]');
+<!--<script>-->
+<!--    // Lấy form và nút submit-->
+<!--const form = document.getElementById('update-user-form');-->
+<!--const submitBtn = form.querySelector('input[type="submit"]');-->
 
-// Gán sự kiện submit cho form
-form.addEventListener('submit', (event) => {
-  event.preventDefault(); // Ngăn chặn form submit mặc định
+<!--// Gán sự kiện submit cho form-->
+<!--form.addEventListener('submit', (event) => {-->
+<!--  event.preventDefault(); // Ngăn chặn form submit mặc định-->
 
-  // Lấy dữ liệu từ form
-  const formData = new FormData(form);
+<!--  // Lấy dữ liệu từ form-->
+<!--  const formData = new FormData(form);-->
 
-  // Gọi API bằng fetch
-  fetch('/authent/' + formData.get('userId'), {
-    method: 'PUT',
-    body: formData
-  })
-  .then(response => {
-    if (response.ok) {
-      // Nếu cập nhật thành công, thực hiện hành động tiếp theo
-      // Ví dụ: hiển thị thông báo thành công
-      alert('Cập nhật thành công!');
-    } else {
-      // Nếu có lỗi xảy ra, hiển thị thông báo lỗi
-              $('#message').html('<div class="alert alert-danger">Error editing product: ' + error + '</div>');
+<!--  // Gọi API bằng fetch-->
+<!--  fetch('/users/{id}' + formData.get('userId'), {-->
+<!--    method: 'PUT',-->
+<!--    body: formData-->
+<!--  })-->
+<!--  .then(response => {-->
+<!--    if (response.ok) {-->
+<!--      // Nếu cập nhật thành công, thực hiện hành động tiếp theo-->
+<!--      // Ví dụ: hiển thị thông báo thành công-->
+<!--      alert('Cập nhật thành công!');-->
+<!--    } else {-->
+<!--      // Nếu có lỗi xảy ra, hiển thị thông báo lỗi-->
+<!--              $('#message').html('<div class="alert alert-danger">Error editing product: ' + error + '</div>');-->
 
-      alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
-    }
-  })
-  .catch(error => {
-    // Nếu có lỗi xảy ra khi gọi API, hiển thị thông báo lỗi
-    alert('Có lỗi xảy ra. Vui lòng thử lại sau.');
-  });
-});
-</script>
+<!--      alert('Có lỗi xảy ra. Vui lòng thử lại sau.');-->
+<!--    }-->
+<!--  })-->
+<!--  .catch(error => {-->
+<!--    // Nếu có lỗi xảy ra khi gọi API, hiển thị thông báo lỗi-->
+<!--    alert('Có lỗi xảy ra. Vui lòng thử lại sau.');-->
+<!--  });-->
+<!--});-->
+<!--</script>-->

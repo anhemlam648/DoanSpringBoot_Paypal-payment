@@ -387,7 +387,7 @@
                     </i>
                 </div>
             </div>
-            <div class="header__nav_bot" style=" height: 80px;background: linear-gradient(to right, #FFC0CB, #FFC0CB);" >
+            <div class="header__nav_bot" style="height: 80px;background: linear-gradient(to right, #FFC0CB, #FFC0CB);">
                 <ul class="header__nav_bot-list">
                     <li class="header__nav_bot-item">
                         <a class="header__nav_bot-link" th:href="@{/}" style="font-weight: bold; color: white;text-decoration: underline">Trang chủ</a>
@@ -407,7 +407,30 @@
                     <li class="header__nav_bot-item header__nav_bot-flex">
                         <a class="header__nav_bot-link" th:href="@{/danhgia/form}" style="font-weight: bold; color: white;text-decoration: underline">Đánh giá</a>
                     </li>
+                    <!-- Các liên kết khác ở đây -->
                 </ul>
+                <script>
+                // Lấy danh sách các liên kết
+                var navLinks = document.querySelectorAll('.header__nav_bot-link');
+
+                // Lặp qua từng liên kết và thêm sự kiện click
+                navLinks.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        // Thiết lập màu cho liên kết đã được nhấp và đổi màu cho tất cả các liên kết khác
+                        navLinks.forEach(function(otherLink) {
+                            if (otherLink !== link) {
+                                otherLink.style.color = 'white'; // Màu mặc định
+                            }
+                        });
+
+                        // Thiết lập màu cho liên kết đã được nhấp
+                        link.style.color = '#FF3333'; // Màu bạn muốn thay đổi
+
+                        // Nếu bạn muốn điều hướng đến URL được xác định trong th:href, hãy thêm dòng sau:
+                        // window.location.href = link.getAttribute('href');
+                    });
+                });
+            </script>
             </div>
         </header>
     </div>

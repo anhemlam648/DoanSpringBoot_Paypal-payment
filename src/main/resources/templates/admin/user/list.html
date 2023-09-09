@@ -21,7 +21,7 @@
                 <th scope="col">Tên người dùng</th>
                 <th scope="col">Tên tài khoản</th>
                 <th scope="col">Email</th>
-                <th scope="col">Phân quyền</th>
+                <th scope="col">Chi tiết</th>
                 <th scope="col"></th>
 
             </tr>
@@ -38,7 +38,7 @@
                 <td th:text="${user.username}"></td>
                 <td th:text="${user.email}"></td>
                 <td>
-                    <a class="text-decoration-none text-dark" th:href="@{/authent/update/{id}(id=${user.id})}" style="background-color: pink; color: white; border: 2px solid black;">Chỉnh sửa</a>
+                    <a class="text-decoration-none text-dark" th:href="@{/authent/update/{id}(id=${user.id})}" style="background-color: pink; color: white; border: 2px solid black;">Hiển thị</a>
                 </td>
             </tr>
             </tbody>
