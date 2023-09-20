@@ -17,5 +17,6 @@ public class DoAnJavaApplication {
 	public static void main(String[] args) throws IOException {
 		new FirebaseService().initialAppFireBase();
 		SpringApplication.run(DoAnJavaApplication.class, args);
+
 	}
 }

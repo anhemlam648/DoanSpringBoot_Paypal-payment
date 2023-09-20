@@ -113,6 +113,17 @@
                     Thêm vào giỏ hàng
                 </a>
             </div>
+            <div class="d-grid my-4">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_xclick">
+                    <input type="hidden" name="business" value="vunghia467@gmail.com">
+                    <input type="hidden" name="item_name" value="product.name">
+                    <input type="hidden" name="amount" value="product.price">
+                    <input type="hidden" name="currency_code" value="VNĐ">
+                    <input type="hidden" name="return" value="home/index">
+                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                </form>
+            </div>
 <!--            </td>-->
             <div class="accordion">
                 <div class="accordion-item">

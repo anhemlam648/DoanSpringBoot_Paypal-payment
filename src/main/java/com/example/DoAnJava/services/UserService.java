@@ -43,6 +43,7 @@ public class UserService {
         return createUser;
     }
 
+
     public User create(CreateUserDto user) {
         if (userRepository.existsByUsername(user.getUsername()) || userRepository.existsByEmail(user.getEmail())) {
             // Trả về null hoặc đối tượng rỗng tùy theo yêu cầu của bạn
@@ -81,6 +82,71 @@ public class UserService {
         return usertoSave;
     }
 
+//    public User create(CreateUserDto user) {
+//        User usertoSave = new User();
+//        usertoSave.setUsername(user.getUsername());
+//        usertoSave.setPassword(user.getPassword());
+//        usertoSave.setEmail(user.getEmail());
+//        usertoSave.setName(user.getName());
+//        usertoSave.setPhoneNumber(user.getPhoneNumber());
+//        var k = userRepository.save(usertoSave);
+//        if (user.getRoleName() == null) {
+//            UserRole userRole = new UserRole();
+//            UserRolePk pk = new UserRolePk();
+//            pk.setUserId(k.getId());
+//            var id = this.roleRepository.getRoleIdByName("USER");
+//            var role = this.roleRepository.findById(id).orElse(null);
+//            pk.setRoleId(id);
+//            userRole.setId(pk);
+//            userRole.setRole(role);
+//            userRole.setUser(usertoSave);
+//            this.userroleRepository.save(userRole);
+//        } else {
+//            UserRole userRole = new UserRole();
+//            UserRolePk pk = new UserRolePk();
+//            pk.setUserId(k.getId());
+//            var id = this.roleRepository.getRoleIdByName(user.getRoleName());
+//            var role = this.roleRepository.findById(id).orElse(null);
+//            pk.setRoleId(id);
+//            userRole.setId(pk);
+//            userRole.setRole(role);
+//            userRole.setUser(usertoSave);
+//            this.userroleRepository.save(userRole);
+//        }
+//        return usertoSave;
+//    }
+//        public User create(CreateUserDto user) {
+//            // Kiểm tra xem người dùng đã tồn tại hay chưa bằng username hoặc email
+//            if (userRepository.existsByUsername(user.getUsername()) || userRepository.existsByEmail(user.getEmail())) {
+//                // Trả về null hoặc đối tượng rỗng tùy theo yêu cầu của bạn
+//                return null;
+//            }
+//
+//
+//            User usertoSave = new User();
+//            usertoSave.setUsername(user.getUsername());
+//            usertoSave.setPassword(user.getPassword());
+//            usertoSave.setEmail(user.getEmail());
+//            usertoSave.setName(user.getName());
+//            usertoSave.setPhoneNumber(user.getPhoneNumber());
+//            var savedUser = userRepository.save(usertoSave);
+//
+//            UserRole userRole = new UserRole();
+//            UserRolePk pk = new UserRolePk();
+//            pk.setUserId(savedUser.getId());
+//
+//            // Lấy roleId dựa trên roleName (nếu roleName không tồn tại, mặc định sử dụng "USER")
+//            var roleName = (user.getRoleName() != null) ? user.getRoleName() : "USER";
+//            var id = this.roleRepository.getRoleIdByName(roleName);
+//            var role = this.roleRepository.findById(id).orElse(null);
+//            pk.setRoleId(id);
+//            userRole.setId(pk);
+//            userRole.setRole(role);
+//            userRole.setUser(savedUser);
+//            this.userroleRepository.save(userRole);
+//
+//            return savedUser;
+//        }
     public void DeleteUser(Long userId) {
         userRepository.deleteById(userId);
     }
