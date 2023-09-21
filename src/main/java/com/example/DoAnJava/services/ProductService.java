@@ -1,7 +1,6 @@
 package com.example.DoAnJava.services;
 
 import com.example.DoAnJava.DTO.CreateProductDto;
-import com.example.DoAnJava.controller.ProductController;
 import com.example.DoAnJava.entity.Category;
 import com.example.DoAnJava.entity.Product;
 import com.example.DoAnJava.entity.ProductType;
@@ -79,7 +78,7 @@ public class ProductService {
         productSaved.setProductType(productType);
         return productRepository.save(productSaved);
     }
-    public Product updateSoLuong(CreateProductDto product, Long id){
+    public Product updateSoLuong(Product product, Long id){
         Product productSaved = this.productRepository.findById(id).orElse(null);
         productSaved.setName(product.getName());
         productSaved.setQuantityStock(product.getQuantityStock());

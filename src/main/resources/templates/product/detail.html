@@ -115,13 +115,18 @@
             </div>
             <div class="d-grid my-4">
                 <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_xclick">
-                    <input type="hidden" name="business" value="sb-ein47l26897469@personal.example.com">
-                    <input type="hidden" name="item_name" value="Trà sữa đường đen"> <!-- Sửa giá trị này để hiển thị tên sản phẩm -->
-                    <input type="hidden" name="amount" value="9000"> <!-- Sửa giá trị này để hiển thị giá sản phẩm -->
-                    <input type="hidden" name="currency_code" value="USD"> <!-- Sửa loại tiền tệ nếu cần -->
-                    <input type="hidden" name="return" value="https://shoptopping-89b153dfa8dc.herokuapp.com/"> <!-- Sửa URL này để trả về trang home/index của bạn -->
-                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    <!-- Vòng lặp qua danh sách sản phẩm -->
+                    <th:block th:each="productItem : ${product}">
+                        <!-- Mỗi sản phẩm có một biểu mẫu thanh toán riêng -->
+                        <input type="hidden" name="cmd" value="_xclick">
+                        <input type="hidden" name="business" value="sb-ppqtc27424969@personal.example.com">
+                        <input type="hidden" name="custom" th:value="${productItem.id}">
+                        <input type="hidden" name="item_name" th:value="${productItem.name}">
+                        <input type="hidden" name="amount" th:value="${productItem.price}">
+                        <input type="hidden" name="currency_code" value="USD">
+                        <input type="hidden" name="return" value="https://shoptopping-89b153dfa8dc.herokuapp.com/">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                    </th:block>
                 </form>
             </div>
 <!--            </td>-->
