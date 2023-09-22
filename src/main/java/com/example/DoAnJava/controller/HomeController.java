@@ -24,7 +24,7 @@ public class HomeController {
     public String home(Model model)
     {
 //        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/list";
-        String url = "http://https://puzzled-gun-production.up.railway.app/product/list";
+        String url = "https://puzzled-gun-production.up.railway.app/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
         return  "home/index";
