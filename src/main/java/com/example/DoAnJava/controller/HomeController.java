@@ -23,7 +23,7 @@ public class HomeController {
     @GetMapping
     public String home(Model model)
     {
-        String url = "puzzled-gun-production.up.railway.app/product/list";
+        String url = "https://puzzled-gun-production.railway.com/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
         return  "home/index";
