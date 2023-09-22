@@ -32,9 +32,9 @@ public class HomeController {
     @GetMapping
     public String home(Model model)
     {
-//        String url = "https://puzzled-gun-production.railway.com/product/list";
-//        List products = this.restTemplate.getForObject(url, List.class);
-//        model.addAttribute("products",products);
+        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/list";
+        List products = this.restTemplate.getForObject(url, List.class);
+        model.addAttribute("products",products);
         return  "home/index";
     }
 
