@@ -20,12 +20,21 @@ import java.util.List;
 public class HomeController {
     @Autowired
     private RestTemplate restTemplate;
+//    @GetMapping
+//    public String home(Model model)
+//    {
+//        String url = "https://puzzled-gun-production.railway.com/product/list";
+//        List products = this.restTemplate.getForObject(url, List.class);
+//        model.addAttribute("products",products);
+//        return  "home/index";
+//    }
+
     @GetMapping
     public String home(Model model)
     {
-        String url = "https://puzzled-gun-production.railway.com/product/list";
-        List products = this.restTemplate.getForObject(url, List.class);
-        model.addAttribute("products",products);
+//        String url = "https://puzzled-gun-production.railway.com/product/list";
+//        List products = this.restTemplate.getForObject(url, List.class);
+//        model.addAttribute("products",products);
         return  "home/index";
     }
 
