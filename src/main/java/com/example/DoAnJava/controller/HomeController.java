@@ -32,7 +32,7 @@ public class HomeController {
     @GetMapping
     public String home(Model model)
     {
-        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/list";
+        String url = "https://spooky-mind-production.up.railway.app/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
         return  "home/index";
@@ -48,7 +48,7 @@ public class HomeController {
     }
     @GetMapping("/detail/{id}")
     public String detail(@PathVariable(value = "id") Long id , Model model) {
-        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/api/product/detail/"+id;
+        String url = "https://spooky-mind-production.up.railway.app/api/product/detail/"+id;
         RestTemplate restTemplate = new RestTemplate();
         Product result = restTemplate.getForObject(url, Product.class);
         model.addAttribute("product", result);
