@@ -41,7 +41,7 @@ public class adminProductController {
     @GetMapping("/list")
     public String listProduct(Model model)
     {
-        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/list";
+        String url = "https://spooky-mind-production.up.railway.app/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
         return "admin/product/list";
@@ -58,7 +58,7 @@ public class adminProductController {
 
     @GetMapping("/edit/{id}")
     public String editProduct(@PathVariable("id") Long id, Model model) {
-        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/"+id;
+        String url = "https://spooky-mind-production.up.railway.app/product/"+id;
         ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
 
 
