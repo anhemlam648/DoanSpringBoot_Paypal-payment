@@ -87,7 +87,7 @@ public class ProductController {
 
     @GetMapping("/view/{id}")
     public String getView(@PathVariable(value = "id") Long id,Model model) {
-        String url = "http://shoptopping-89b153dfa8dc.herokuapp.com/product/"+id;
+        String url = "https://spooky-mind-production.up.railway.app/product/"+id;
         ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
         model.addAttribute("product", product);
         return "product/detail";
