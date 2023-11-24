@@ -116,7 +116,7 @@
                 }
                 </script>
                 <button id="btn-order" type="submit" class="btn btn-primary col-xl-12 btn-dark"
-                        style="width:19%; padding: 8px; margin-left: 80%;background-color: pink; color: white; border: 2px solid black;" onclick="showNotification()">Thanh toán
+                        style="width:19%; padding: 8px; margin-left: 80%;color: black; border: 2px solid black;" onclick="showNotification()">Thanh toán
                 </button>
 
             </div>
@@ -145,7 +145,7 @@
                                        name="quantity" class="form-control quantity-input" th:value="${item.quantity}"/>
                                 <div class="card_price">
                                     <h3 class="price product_price" th:text="${item.price * item.quantity}">Price</h3>
-                                    <a th:href="@{/remove/{id}(id=${item.getId})}" style="padding: 9px 20px;background-color: pink; color: white; border: 2px solid black;"
+                                    <a th:href="@{/remove/{id}(id=${item.getId})}" style="padding: 9px 20px; color:black; border: 2px solid black;"
                                        class="btn btn-dark btn-primary btn-sm">Xóa</a>
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
             </div>
             <div>
                 <button id="btn-oder" class="btn btn-primary btn-dark"
-                        style="width:19%; padding: 8px; margin-left: 80%;background-color: pink; color: white; border: 2px solid black;">Xác nhận
+                        style="width:19%; padding: 8px; margin-left: 80%; color:black; border: 2px solid black;">Xác nhận
                 </button>
             </div>
         </div>
