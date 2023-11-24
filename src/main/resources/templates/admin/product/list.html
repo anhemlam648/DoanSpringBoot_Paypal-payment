@@ -15,7 +15,7 @@
             <li class="breadcrumb-item active"> <a class="nav-link" style="display: inline-block;" th:href="@{/admin/product/list}"><strong>Quản lý sản phẩm</strong></a> </li>
         </ol>
         <p>
-            <a class="btn btn-dark m-1" th:href="@{/admin/product/add}" style="background-color: pink; color: white; border: 2px solid black;">Tạo Mới</a>
+            <a class="btn btn-dark m-1" th:href="@{/admin/product/add}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C); border: 2px solid black;">Tạo Mới</a>
         </p>
         <div id="message"></div>
 
@@ -62,9 +62,9 @@
                 </td>
                 <td th:text="${product.unit}"></td>
                 <td>
-                    <a class="text-decoration-none text-dark" th:href="@{/admin/product/{id}(id=${product.id})}" style="background-color: pink; color: white; border: 2px solid black;">Chi tiết</a> |
-                    <a class="text-decoration-none text-dark" th:href="@{/admin/product/edit/{id}(id=${product.id})}" style="background-color: pink; color: white; border: 2px solid black;">Sửa</a> |
-                    <a class="text-decoration-none text-danger delete-product" th:attr="data-product-id=${product.id}" th:href="@{#}" style="background-color: pink; color: white; border: 2px solid black;">Xóa</a>
+                    <a class="text-decoration-none text-dark" th:href="@{/admin/product/{id}(id=${product.id})}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C);border: 2px solid black;">Chi tiết</a> |
+                    <a class="text-decoration-none text-dark" th:href="@{/admin/product/edit/{id}(id=${product.id})}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C);border: 2px solid black;">Sửa</a> |
+                    <a class="text-decoration-none text-danger delete-product" th:attr="data-product-id=${product.id}" th:href="@{#}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C);border: 2px solid black;">Xóa</a>
                 </td>
             </tr>
             </tbody>
