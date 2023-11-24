@@ -290,7 +290,6 @@
 <!--                        <a th:if="${user == null}" style="color: #000; text-decoration: none; position: relative;" class="icon__function_items icon__function_items_bag fas fa-shopping-cart" href="/cart"></a>-->
                     <p id="cartCount" style="margin: 0; color: #fff; background: linear-gradient(to right, #D2B48C, #D2B48C);  border-radius: 50%; padding: 4px 8px; font-size: 12px; position: absolute; top: -5px;"></p>
                     <a th:if="${user == null}" style="color: #000; text-decoration: none; position: relative;" class="icon__function_items icon__function_items_bag fas fa-shopping-cart" href="/cart"></a>
-<!--                    </span>-->
                     <script>
                     $(document).ready(function() {
                     var cartItemCountElement = $('#cartCount');
@@ -309,6 +308,25 @@
                             });
                         });
                     </script>
+<!--                    </span>-->
+<!--                    <script>-->
+<!--                    $(document).ready(function() {-->
+<!--                    var cartItemCountElement = $('#cartCount');-->
+<!--                    var cartIconElement = $('.icon__function_items_bag');-->
+
+<!--                    $.ajax({-->
+<!--                    url: '/cart/count',-->
+<!--                    type: 'GET',-->
+<!--                    success: function(data) {-->
+<!--                        cartItemCountElement.text(data);-->
+
+<!--                        if (data > 0) {-->
+<!--                            cartIconElement.addClass('has-items');-->
+<!--                                    }-->
+<!--                                }-->
+<!--                            });-->
+<!--                        });-->
+<!--                    </script>-->
                     <a class="icon__function_items icon__function_items_bag" style="color: #000; text-decoration: none; position: relative; ">
                         <input type="checkbox" name="switch-toggle" id="light-dark" class="switch-toggle" style="margin: 0; margin-left: 10px;">
                     </a>
