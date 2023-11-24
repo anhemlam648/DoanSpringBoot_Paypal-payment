@@ -31,7 +31,7 @@ public class OrdersControllerApi {
     //TODO Api for OrdersController
     @GetMapping("/{id}")
     public String getView(@PathVariable(value = "id") Long id,Model model) {
-        String url = "https://shoptrasua.com/orders/detail/"+id;
+        String url = "https://calculating-destruction-production.up.railway.app/orders/detail/"+id;
         List order = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("orders", order);
         return "admin/order/detail";
@@ -39,7 +39,7 @@ public class OrdersControllerApi {
     @GetMapping("/array")
     public String listProduct(Model model)
     {
-        String url = "https://shoptrasua.com/orders/list";
+        String url = "https://calculating-destruction-production.up.railway.app/orders/list";
         List orders = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("orders",orders);
         return "admin/order/list";
