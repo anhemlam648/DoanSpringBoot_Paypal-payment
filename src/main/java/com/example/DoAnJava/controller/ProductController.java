@@ -62,16 +62,16 @@ public class ProductController {
         model.addAttribute("categories",categories);
         return "product/list";
     }
-    @DeleteMapping("/delete/{id}")
-    @ResponseBody
-    public ResponseEntity deleteProduct(@PathVariable Long id){
-        Product product = this.productService.getProductById(id);
-        if (product != null) {
-            this.productService.deleteProduct(id);
-            return ResponseEntity.status(HttpStatus.OK).body("delete product successfully");
-        }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST ).body("Product not found");
-    }
+//    @DeleteMapping("/delete/{id}")
+//    @ResponseBody
+//    public ResponseEntity deleteProduct(@PathVariable Long id){
+//        Product product = this.productService.getProductById(id);
+//        if (product != null) {
+//            this.productService.deleteProduct(id);
+//            return ResponseEntity.status(HttpStatus.OK).body("delete product successfully");
+//        }
+//        return ResponseEntity.status(HttpStatus.BAD_REQUEST ).body("Product not found");
+//    }
     @PutMapping("/edit/{id}")
     @ResponseBody
     public ResponseEntity updateProduct(@PathVariable Long id, @ModelAttribute CreateProductDto createProductDto) {
