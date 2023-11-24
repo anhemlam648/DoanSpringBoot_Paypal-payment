@@ -64,7 +64,7 @@
                 <td>
                     <a class="text-decoration-none text-dark" th:href="@{/admin/product/{id}(id=${product.id})}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C);border: 2px solid black;">Chi tiết</a> |
                     <a class="text-decoration-none text-dark" th:href="@{/admin/product/edit/{id}(id=${product.id})}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C);;border: 2px solid black;">Sửa</a> |
-                    <a class="text-decoration-none text-danger delete-product" th:attr="data-product-id=${product.id}" th:href="@{#}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C);border: 2px solid black;">Xóa</a>
+                    <a class="text-decoration-none text-danger delete-product" th:attr="data-product-id=${product.id}" th:href="@{/product/delete/{id}(id=${product.id})}" style="background-color:linear-gradient(to right, #D2B48C, #D2B48C);border: 2px solid black;">Xóa</a>
                 </td>
             </tr>
             </tbody>
