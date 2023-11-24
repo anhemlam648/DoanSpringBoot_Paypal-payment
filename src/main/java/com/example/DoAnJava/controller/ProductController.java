@@ -43,10 +43,10 @@ public class ProductController {
     @GetMapping("/cate/{name}")
     public String listProductByCate(@PathVariable(value="name") String name,Model model)
     {
-        String url = "https://calculating-destruction-production.up.railway.app/product/category/"+name;
+        String url = "https://undisturbed-scarecrow-production.up.railway.app/product/category/"+name;
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products", products);
-        String uri = "https://calculating-destruction-production.up.railway.app/category";
+        String uri = "https://undisturbed-scarecrow-production.up.railway.app/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
         return "product/list";
@@ -54,10 +54,10 @@ public class ProductController {
     @GetMapping("/products")
     public String listProduct(Model model)
     {
-        String url = "https://calculating-destruction-production.up.railway.app/product/list";
+        String url = "https://undisturbed-scarecrow-production.up.railway.app/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
-        String uri = "https://calculating-destruction-production.up.railway.app/category";
+        String uri = "https://undisturbed-scarecrow-production.up.railway.app/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
         return "product/list";
@@ -87,7 +87,7 @@ public class ProductController {
 
     @GetMapping("/view/{id}")
     public String getView(@PathVariable(value = "id") Long id,Model model) {
-        String url = "https://calculating-destruction-production.up.railway.app/product/"+id;
+        String url = "https://undisturbed-scarecrow-production.up.railway.app/product/"+id;
         ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
         model.addAttribute("product", product);
         return "product/detail";
