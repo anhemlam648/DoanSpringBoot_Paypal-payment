@@ -41,7 +41,7 @@ public class adminProductController {
     @GetMapping("/list")
     public String listProduct(Model model)
     {
-        String url = "https://undisturbed-scarecrow-production.up.railway.app/product/list";
+        String url = "https://resilient-mist-production.up.railway.app/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
         return "admin/product/list";
@@ -58,7 +58,7 @@ public class adminProductController {
 
     @GetMapping("/edit/{id}")
     public String editProduct(@PathVariable("id") Long id, Model model) {
-        String url = "https://undisturbed-scarecrow-production.up.railway.app/product/"+id;
+        String url = "https://resilient-mist-production.up.railway.app/product/"+id;
         ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
 
 
@@ -82,7 +82,7 @@ public class adminProductController {
     }
     @GetMapping("/{id}")
     public String getView(@PathVariable(value = "id") Long id,Model model) {
-        String url = "https://undisturbed-scarecrow-production.up.railway.app/product/"+id;
+        String url = "https://resilient-mist-production.up.railway.app/product/"+id;
         ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
         model.addAttribute("product", product);
         return "admin/product/detail";
