@@ -28,7 +28,7 @@ public class FirebaseService {
 
         InputStream serviceAccount = classLoader.getResourceAsStream("serviceAccount.json");
 
-        FirebaseOptions options = new FirebaseOptions.Builder().setCredentials(GoogleCredentials.fromStream(serviceAccount)).setStorageBucket("upload-img-81776.appspot.com").build();
+        FirebaseOptions options = new FirebaseOptions.Builder().setCredentials(GoogleCredentials.fromStream(serviceAccount)).setStorageBucket("filetrasua.appspot.com").build();
         for (FirebaseApp app : FirebaseApp.getApps()) {
             app.delete();
         }
@@ -48,7 +48,7 @@ public class FirebaseService {
             String storageFileName = UUID.randomUUID().toString() + "_" + fileName;
 
             // Tạo đối tượng BlobId để định danh cho file
-            BlobId blobId = BlobId.of("upload-img-81776.appspot.com", storageFileName);
+            BlobId blobId = BlobId.of("filetrasua.appspot.com", storageFileName);
 
             // Tạo đối tượng BlobInfo để cung cấp thông tin về file cần upload
             BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setContentType(contentType).build();

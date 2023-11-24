@@ -30,7 +30,7 @@ public class FirebaseController {
         String contentType = file.getContentType();
         String storageFileName = UUID.randomUUID().toString() + "_" + fileName;
 
-        BlobId blobId = BlobId.of("upload-img-81776.appspot.com", storageFileName);
+        BlobId blobId = BlobId.of("filetrasua.appspot.com", storageFileName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
                 .setContentType(contentType)
                 .build();
