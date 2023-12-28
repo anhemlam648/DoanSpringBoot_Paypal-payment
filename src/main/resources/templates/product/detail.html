@@ -15,6 +15,13 @@
         background-color: pink;
         color: white;
         }
+      .paypal-button {
+            background: linear-gradient(180deg, #004c7d 50%, #ffcc29 50%);
+        }
+
+        .paypal-button:hover {
+            background: linear-gradient(180deg, #004c7d 50%, #ffcc29 50%);
+        }
     </style>
 </head>
 <body class="app">
@@ -114,21 +121,32 @@
                 </a>
             </div>
             <div class="d-grid my-4">
-                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <!-- Vòng lặp qua danh sách sản phẩm -->
-                    <th:block th:each="productItem : ${product}">
-                        <!-- Mỗi sản phẩm có một biểu mẫu thanh toán riêng -->
-                        <input type="hidden" name="cmd" value="_xclick">
-                        <input type="hidden" name="business" value="sb-ppqtc27424969@personal.example.com">
-                        <input type="hidden" name="custom" th:value="${productItem.id}">
-                        <input type="hidden" name="item_name" th:value="${productItem.name}">
-                        <input type="hidden" name="amount" th:value="${productItem.price}">
-                        <input type="hidden" name="currency_code" value="USD">
-                        <input type="hidden" name="return" value="https://resilient-mist-production.up.railway.app/">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-                    </th:block>
-                </form>
+                <a th:href="@{/paypal(id=${product.id})}" class="btn btn-lg btn-dark paypal-button" style="color:	#000099;" >
+                    Buy Now With PayPal
+                </a>
             </div>
+<!--            <div class="d-grid my-4">-->
+<!--&lt;!&ndash;                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">&ndash;&gt;-->
+<!--&lt;!&ndash;                    &lt;!&ndash; Vòng lặp qua danh sách sản phẩm &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    <th:block th:each="productItem : ${product}">&ndash;&gt;-->
+<!--&lt;!&ndash;                        &lt;!&ndash; Mỗi sản phẩm có một biểu mẫu thanh toán riêng &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="hidden" name="cmd" value="_xclick">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="hidden" name="business" value="sb-ppqtc27424969@personal.example.com">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="hidden" name="custom" th:value="${productItem.id}">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="hidden" name="item_name" th:value="${productItem.name}">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="hidden" name="amount" th:value="${productItem.price}">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="hidden" name="currency_code" value="USD">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="hidden" name="return" value="https://resilient-mist-production.up.railway.app/">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">&ndash;&gt;-->
+<!--&lt;!&ndash;                    </th:block>&ndash;&gt;-->
+<!--&lt;!&ndash;                </form>&ndash;&gt;-->
+<!--                <button id="btn-orders" type="submit" class="btn btn-primary col-xl-12 btn-dark"-->
+<!--                        style="width: 150px; margin-left: 80%; background: #007BFF; border: 2px solid #0056b3; border-radius: 5px;">-->
+<!--                    <a class="btn btn-success" th:href="@{/pays(id=${product.id})}" style="color: white; text-decoration: none; display: block; padding: 8px;">-->
+<!--                        PayPal-->
+<!--                    </a>-->
+<!--                </button>-->
+<!--            </div>-->
 <!--            </td>-->
             <div class="accordion">
                 <div class="accordion-item">

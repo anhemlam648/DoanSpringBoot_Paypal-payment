@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+//là một RESTful áp dụng @ResponseBody
 @RestController
 @RequestMapping("/category")
 public class CategoryController {

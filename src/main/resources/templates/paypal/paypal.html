@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán PAYPAL</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            padding: 8px;
+            background-image: url('https://img6.thuthuatphanmem.vn/uploads/2022/04/19/background-2d-dep-cho-photoshop_023229230.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff; /* Set text color to white */
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -16px;
+        }
+
+        .col-75 {
+            flex: 75%;
+            padding: 0 16px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type=text] {
+            width: 100%;
+            margin-bottom: 20px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        label {
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 17px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* PayPal icon styling */
+        .paypal-icon {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq6aj6dY8poSlTMV-jRez9GESFsy5VkcUE707xGujjm75lsmgmN61MlX2JOkl0tqUl9zY&usqp=CAU');
+            background-size: cover;
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="row">
+    <div class="col-75">
+        <div class="container">
+            <div class="paypal-icon"></div>
+            <form method="post" action="/paypal">
+                <!-- Your form content goes here -->
+                <label for="method">Payment Method</label>
+                <input type="text" id="method" name="method" value="PayPal" readonly>
+
+                <label for="intent">Intent</label>
+                <input type="text" id="intent" name="intent" value="SALE" readonly>
+
+                <label for="price">Total</label>
+                <input type="text" id="price" name="price" th:value="${productPrice}" readonly>
+
+                <label for="price">Name</label>
+                <input type="text" id="name" name="name" th:value="${productName}" readonly>
+
+                <label for="currency">Currency</label>
+                <input type="text" id="currency" name="currency" value="USD" readonly>
+
+                <label for="description">Payment Description</label>
+                <input type="text" id="description" name="description" placeholder="Payment Description">
+
+                <input type="submit" value="Tiếp tục giao dịch" class="btn">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

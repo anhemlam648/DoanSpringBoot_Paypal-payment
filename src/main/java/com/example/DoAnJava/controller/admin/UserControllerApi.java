@@ -93,7 +93,7 @@ public class UserControllerApi {
     }
     @GetMapping("/update/{id}")
     public String getView(@PathVariable(value = "id") Long id,Model model) {
-        String url = "https://resilient-mist-production.up.railway.app/authent/detail/"+id;
+        String url = "https://high-view-production.up.railway.app/authent/detail/"+id;
         CreateUserDto product = this.restTemplate.getForObject(url, CreateUserDto.class);
         model.addAttribute("user", product);
         List<Role> roles = this.roleService.getAllRole();
@@ -105,7 +105,7 @@ public class UserControllerApi {
     @GetMapping("/array")
     public String listProduct(Model model)
     {
-        String url = "https://resilient-mist-production.up.railway.app/authent/list";
+        String url = "https://high-view-production.up.railway.app/authent/list";
         List users = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("users",users);
         return "admin/user/list";

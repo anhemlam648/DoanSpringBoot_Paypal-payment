@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface IUserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.username = ?1")
@@ -27,4 +29,6 @@ public interface IUserRepository extends JpaRepository<User, Long> {
     boolean existsByUsername(String username);
 
     boolean existsByEmail(String email);
+
+    List<User> findByEmail(String email);
 }

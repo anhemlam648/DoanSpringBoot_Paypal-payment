@@ -7,6 +7,7 @@
     import org.springframework.stereotype.Repository;
 
     import java.util.List;
+    import java.util.Optional;
 
     @Repository
     public interface IProductRepository extends JpaRepository<Product,Long> {
@@ -17,4 +18,6 @@
         List<Product> searchByName(String keyWord);
         @Query("SELECT p FROM Product p WHERE LOWER(p.name) LIKE %:keyword% OR LOWER(p.category.name) LIKE %:keyword%")
         List<Product> searchProducts(@Param("keyword") String keyword);
+
+        Optional<Product> findById(Long id);
     }

@@ -43,10 +43,10 @@ public class ProductController {
     @GetMapping("/cate/{name}")
     public String listProductByCate(@PathVariable(value="name") String name,Model model)
     {
-        String url = "https://resilient-mist-production.up.railway.app/product/category/"+name;
+        String url = "https://high-view-production.up.railway.app/product/category/"+name;
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products", products);
-        String uri = "https://resilient-mist-production.up.railway.app/category";
+        String uri = "https://high-view-production.up.railway.app/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
         return "product/list";
@@ -54,10 +54,10 @@ public class ProductController {
     @GetMapping("/products")
     public String listProduct(Model model)
     {
-        String url = "https://resilient-mist-production.up.railway.app/product/list";
+        String url = "https://high-view-production.up.railway.app/product/list";
         List products = this.restTemplate.getForObject(url, List.class);
         model.addAttribute("products",products);
-        String uri = "https://resilient-mist-production.up.railway.app/category";
+        String uri = "https://high-view-production.up.railway.app/category";
         List categories = this.restTemplate.getForObject(uri, List.class);
         model.addAttribute("categories",categories);
         return "product/list";
@@ -87,7 +87,7 @@ public class ProductController {
 
     @GetMapping("/view/{id}")
     public String getView(@PathVariable(value = "id") Long id,Model model) {
-        String url = "https://resilient-mist-production.up.railway.app/product/"+id;
+        String url = "https://high-view-production.up.railway.app/product/"+id;
         ProductDto product = this.restTemplate.getForObject(url, ProductDto.class);
         model.addAttribute("product", product);
         return "product/detail";
@@ -139,13 +139,18 @@ public class ProductController {
     @PostMapping()
     @ResponseBody
     public Product create(@ModelAttribute() CreateProductDto product) {
+        // Tải lên hình ảnh đầu tiên và lấy URL
         String url = this.firebaseService.uploadImages(product.getFile()).get(0);
         System.out.println("url 0  " + url);
+        // Tải lên danh sách hình ảnh và nhận danh sách URL
         List<String> url_list = this.firebaseService.uploadImages(product.getFiles());
+        // Set URL đầu tiên vào trường urlImageThumbnail của sản phẩm
         product.setUrlImageThumbnail(url);
 //        String result = String.join(",", url_list);
+        // Set danh sách URL vào trường imageList của sản phẩm
         product.setImageList(url_list);
         System.out.println(url_list);
+        // Lưu thông tin sản phẩm vào cơ sở dữ liệu và trả về đối tượng sản phẩm đã được lưu
         return this.productService.saveProduct(product);
     }
     /*

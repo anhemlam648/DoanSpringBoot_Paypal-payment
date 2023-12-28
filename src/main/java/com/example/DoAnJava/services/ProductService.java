@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -89,6 +90,23 @@ public class ProductService {
     }
     public List<Product> searchProducts(String keyword) {
         return productRepository.searchProducts(keyword.toLowerCase());
+    }
+    public BigDecimal getPriceForProduct(Long productId) {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        return optionalProduct.map(Product::getPrice).orElse(BigDecimal.ZERO);
+    }
+    public String getProductNameById(Long productId) {
+        // Tìm sản phẩm theo ID từ cơ sở dữ liệu
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+
+        // Kiểm tra xem sản phẩm có tồn tại không
+        if (optionalProduct.isPresent()) {
+            // Nếu tồn tại, trả về tên sản phẩm
+            return optionalProduct.get().getName();
+        } else {
+            // Nếu không tồn tại, có thể trả về một giá trị mặc định hoặc xử lý theo cách khác
+            return "error";
+        }
     }
 
 }

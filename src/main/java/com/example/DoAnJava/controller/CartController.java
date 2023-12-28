@@ -37,6 +37,7 @@ public class CartController {
             cart = new Cart();
             model.addAttribute("cart", cart);
         }
+        //tạo biến đề cập đến người dùng đã đăng nhập
         var name = authentication.getName();
         var user = this.userService.findUserByUserName(name);
         model.addAttribute("totalPrice", cartService.getSumPrice(session));
@@ -86,6 +87,7 @@ public class CartController {
     //                }
     //            }
     //}
+    //phương thức sẽ xử lý cả yêu cầu HTTP GET và POST.
     @RequestMapping(value = "/cart/add", method = {RequestMethod.GET, RequestMethod.POST})
     public String addToCart(@RequestParam Long id, @RequestParam int quantity, @RequestParam String imageList, @RequestParam String name, @RequestParam BigDecimal price, Model model) {
 
@@ -97,7 +99,7 @@ public class CartController {
             model.addAttribute("cart", cart);
         } else {
 
-            List<CartItem> items = cart.getItems();
+            List<CartItem> items = cart.getItems(); //đại diện cho mỗi sản phẩm trong giỏ hàng
             for (CartItem item : items) {
                 if (item.getId().equals(id)) {
                     item.setQuantity(item.getQuantity() + quantity);
@@ -107,7 +109,7 @@ public class CartController {
         }
 
 
-        CartItem product = new CartItem(id, name, price, quantity, imageList);
+        CartItem product = new CartItem(id, name, price, quantity, imageList); //tạo đối tượng CartItem mới với tham số được truyền vào
         CartItem products = new CartItem(id, name, price, quantity, imageList);
         cart.addItem(product);
 
@@ -116,18 +118,18 @@ public class CartController {
 
     @GetMapping("/remove/{id}")
     public String removeFromCart(HttpSession session, @PathVariable Long id) {
-        var cart = cartService.getCart(session);
-        cart.removeItem(id);
+        var cart = cartService.getCart(session); // lấy giỏ hàng
+        cart.removeItem(id); // xóa đối tượng lấy từ giỏ hàng
         return "redirect:/cart";
     }
     @GetMapping("/cart/count")
     @ResponseBody
     public int getCartItemCount(Model model) {
-        Cart cart = (Cart) model.getAttribute("cart");
+        Cart cart = (Cart) model.getAttribute("cart");//lưu trữ trong model với tên là cart
         if (cart == null) {
             return 0;
         }
-        return cart.getItems().size();
+        return cart.getItems().size(); // nếu giỏ hàng tồn tại sẽ trả về số lượng mục giỏ hàng qua phương thức size
     }
 
 
