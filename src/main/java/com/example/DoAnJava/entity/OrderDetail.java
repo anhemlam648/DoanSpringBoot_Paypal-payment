@@ -13,6 +13,7 @@ public class OrderDetail {
     @MapsId("productId")
     @JoinColumn(name = "product_id")
     private Product product;
+    //xác định mối quan hệ
     @ManyToOne
     @MapsId("ordersId")
     @JoinColumn(name = "orders_id")

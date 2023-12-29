@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
+//ánh xạ java vào một bảng csdl
 @Entity
 @Table(name = "user_role")
 @AllArgsConstructor

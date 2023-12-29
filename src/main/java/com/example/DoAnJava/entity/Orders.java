@@ -37,6 +37,7 @@ public class Orders {
     @Column(name = "totalPrice")
     private BigDecimal totalPrice;
 
+    //tránh tạo ra chuối json phức tạp
     @JsonIgnore
     @OneToMany(mappedBy = "orders",cascade = CascadeType.ALL)
     private Set<OrderDetail> orderDetails;

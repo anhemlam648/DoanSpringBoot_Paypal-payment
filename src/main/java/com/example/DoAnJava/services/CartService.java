@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+//logic và xử lý
 @Service
 public class CartService {
     private static final String CART_SESSION_KEY = "cart";
@@ -21,6 +22,7 @@ public class CartService {
                     return cart;
                 });
     }
+    //không được phép là null
     public void updateCart(@NotNull HttpSession session, Cart cart) {
         session.setAttribute(CART_SESSION_KEY, cart);
     }

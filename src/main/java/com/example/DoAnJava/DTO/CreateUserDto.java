@@ -10,9 +10,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Set;
-
+//getter,setter
 @Data
+//một con constructor không tham số cho lớp
 @NoArgsConstructor
+//này tạo ra một constructor với tham số cho tất cả các trường trong lớp.
 @AllArgsConstructor
 public class CreateUserDto {
     private Long id;
